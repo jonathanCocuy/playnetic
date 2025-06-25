@@ -1,0 +1,18 @@
+.sidebar {
+    width: 80px;
+    background-color: blue;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+    align-items: center;
+
+    .container_list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-decoration: none;
+        list-style: none;
+    }
+}
