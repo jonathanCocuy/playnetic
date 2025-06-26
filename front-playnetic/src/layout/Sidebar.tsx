@@ -1,20 +1,19 @@
 import { NavLink } from "react-router-dom";
-import {
-  BiSolidHome,
-  BiSolidUser,
-  BiSolidStar,
-  BiLogOut,
-} from "react-icons/bi";
+import { BiSolidHome, BiSolidUser, BiSolidStar, BiLogOut } from "react-icons/bi";
 import { GiConsoleController } from "react-icons/gi";
 import "./sidebar.scss";
 
 export const Sidebar = () => {
   return (
     <aside className="sidebar">
-      <ul>
-        <img src="https://cdn-icons-png.flaticon.com/512/141/141101.png" alt="logo" width={35}/>
-      </ul>
-      <ul className="container_list">
+      <div className="container_logo">
+        <img
+          className="logo"
+          src="https://cdn-icons-png.flaticon.com/512/141/141101.png"
+          alt="logo"
+        />
+      </div>
+      <ul className="container_list page">
         <li className="list">
           <NavLink to="/" className="link">
             <BiSolidHome size={35} className="icon" />
@@ -26,7 +25,8 @@ export const Sidebar = () => {
           </NavLink>
         </li>
       </ul>
-      <ul className="container_list">
+      <hr />
+      <ul className="container_list user">
         <li className="list">
           <NavLink to="/" className="link">
             <BiSolidUser size={35} className="icon" />
@@ -38,10 +38,12 @@ export const Sidebar = () => {
           </NavLink>
         </li>
       </ul>
-      <ul className="container_list">
+      <hr />
+      <ul className="container_list logout">
         <li className="list">
           <NavLink to="/" className="link">
             <BiLogOut size={35} className="icon" />
+            <p>Logout</p>
           </NavLink>
         </li>
       </ul>

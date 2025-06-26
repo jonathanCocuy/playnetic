@@ -1,0 +1,28 @@
+.topbar {
+  width: 80%;
+  height: 100px;
+  background: #404040;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+  .container_input {
+    display: flex;
+    margin-left: 100px;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    padding-left: 150px;
+    gap: 20px;
+
+    .search_input {
+      width: 400px;
+      height: 40px;
+      padding: 8px;
+      border: none;
+      font-size: 16px;
+      background: transparent;
+    }
+  }
+}
