@@ -1,0 +1,21 @@
+/* 
+? Principal colors
+*/
+$white: #FFF;
+$black: #000;
+
+
+/* 
+* Gradient colors
+*/
+$search_input_color: linear-gradient(90deg, #ff6464 0%, #ffbf59 50%, #47c9ff 100%);
+
+/* 
+? Animations
+*/
+
+@keyframes pulse {
+  50% {
+    transform: scale(1.5);
+  }
+}

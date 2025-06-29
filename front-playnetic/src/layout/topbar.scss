@@ -1,30 +1,62 @@
+@use "../styles/vars.scss" as vars;
+
 .topbar {
-  width: 70%;
+  z-index: 1000;
   height: 100px;
   background: #404040;
+  border-radius: 16px;
   position: fixed;
   top: 20px;
-  left: 120px;
-  z-index: -1;
+  left: 130px;
+  right: 415px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  .container_input {
-    width: 50%;
-    height: 100%;
-    padding-left: 150px;
+  .container_search_input {
+    margin-left: 70px;
+    position: relative;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 20px;
 
-    .search_input {
-      width: 400px;
-      height: 40px;
-      padding: 8px;
+    .search {
+      width: 100%;
       border: none;
-      font-size: 16px;
+      color: #fff;
+      font-size: 20px;
+      box-sizing: border-box;
       background: transparent;
+    }
+
+    .search_border {
+      width: 0%;
+      height: 2px;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+
+    .search:focus {
+      outline: none;
+    }
+
+    .search_alt {
+      width: 600px;
+      font-size: 20px;
+      padding-block: 15px;
+    }
+
+    .search_border_alt {
+      height: 3px;
+      transition: width 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+      // It places "background-image" so that Vite supports the gradient color variable.
+      background-image: vars.$search_input_color;
+    }
+
+    .search_alt:focus + .search_border_alt {
+      width: 100%;
     }
   }
 
@@ -33,7 +65,7 @@
     padding: 8px;
     border-radius: 8px;
     margin-right: 50px;
-    box-shadow: 1px 0px 19px 6px rgba(0,0,0,0.10);
+    box-shadow: 1px 0px 19px 6px rgba(0, 0, 0, 0.1);
     display: flex;
     gap: 10px;
 
@@ -57,6 +89,7 @@
     .button_profile {
       background: transparent;
       border: none;
+      border-radius: 16px;
       padding: 4px;
       display: flex;
       justify-content: center;
@@ -64,9 +97,8 @@
       gap: 5px;
 
       &:hover {
-        border-radius: 8px;
         transition: 0.3s ease;
-        box-shadow: 1px 0px 15px 3px rgba(0,0,0,0.20);
+        box-shadow: 1px 0px 15px 3px rgba(0, 0, 0, 0.2);
       }
 
       .profile_image {
@@ -75,15 +107,38 @@
       }
     }
 
+    .active {
+      box-shadow: 1px 0px 15px 3px rgba(0, 0, 0, 0.2);
+    }
+
     .menu {
       width: 100%;
       padding: 8px;
-      background: red;
+      background: #404040;
       position: absolute;
       top: 75px;
       left: 0;
       display: flex;
       flex-direction: column;
+
+      .container_option {
+        display: flex;
+        list-style: none;
+        width: 100%;
+
+        .options_menu {
+          width: 100%;
+          color: white;
+          padding: 4px 8px;
+          border-radius: 4px;
+          text-decoration: none;
+
+          &:hover {
+            color: #bebebe;
+            background: #494949;
+          }
+        }
+      }
     }
 
     .open {

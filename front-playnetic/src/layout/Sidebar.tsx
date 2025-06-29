@@ -15,12 +15,12 @@ export const Sidebar = () => {
       </div>
       <ul className="container_list page">
         <li className="list">
-          <NavLink to="/" className="link">
+          <NavLink to="/home" className="link">
             <BiSolidHome size={35} className="icon" />
           </NavLink>
         </li>
         <li className="list">
-          <NavLink to="/" className="link">
+          <NavLink to="/games" className="link">
             <GiConsoleController size={35} className="icon" />
           </NavLink>
         </li>
@@ -28,12 +28,12 @@ export const Sidebar = () => {
       <hr />
       <ul className="container_list user">
         <li className="list">
-          <NavLink to="/" className="link">
+          <NavLink to="/profile" className="link">
             <BiSolidUser size={35} className="icon" />
           </NavLink>
         </li>
         <li className="list">
-          <NavLink to="/" className="link">
+          <NavLink to="/points" className="link">
             <BiSolidStar size={35} className="icon" />
           </NavLink>
         </li>
@@ -41,7 +41,7 @@ export const Sidebar = () => {
       <hr />
       <ul className="container_list logout">
         <li className="list">
-          <NavLink to="/" className="link">
+          <NavLink to="/logout" className="link">
             <BiLogOut size={35} className="icon" />
             <p>Logout</p>
           </NavLink>
