@@ -1,13 +1,15 @@
-import "./topbar.scss";
-import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
+// React Icons
+import { IoSearch } from "react-icons/io5";
 import { BsCaretDownFill } from "react-icons/bs";
-import { CiSearch } from "react-icons/ci";
+// Images
 import Profile from "../assets/My-photo-profile.png";
+import "./topbar.scss";
 
 export const Topbar = () => {
   const [profileOpen, setProfileOpen] = useState<boolean>(false);
-
+  // 
   function openIt() {
     setProfileOpen(!profileOpen);
   }
@@ -15,7 +17,7 @@ export const Topbar = () => {
   return (
     <div className="topbar">
       <div className="container_search_input">
-        <CiSearch size={30} color="white" />
+        <IoSearch size={30} color="white" />
         <input
           id="search"
           name="search"

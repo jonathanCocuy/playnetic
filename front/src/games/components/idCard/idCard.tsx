@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import ImgIdCard from "../../Images/id-image.avif";
-import "./idCard.css";
 import { Level1 } from "../../Levels/level-1";
 import type { InterfaceTypes } from "../../Interface/Levels-types";
 import type { ColumnsTypes } from "../../Interface/columns-types";
 import { columns } from "../../Levels/columns";
 import { Level2 } from "../../Levels/level-2";
 import Swal from "sweetalert2";
+import "./idCard.css";
 
 interface IdCardProps {
   exerciseCount: number;
@@ -20,7 +20,6 @@ const IdCard = ({ exerciseCount, setExerciseCount }: IdCardProps) => {
   const [levelCount, setLevelCount] = useState<number>(1);
   const [columnsInfo, setColumnsInfo] = useState<ColumnsTypes[]>(columns[0]);
   const [correctAnswers, setCorrectAnswers] = useState<string[]>([]);
-/*   const [exerciseCount, setExerciseCount] = useState<number>(1); */
 
   useEffect(() => {
     getPerson();
@@ -174,13 +173,6 @@ const IdCard = ({ exerciseCount, setExerciseCount }: IdCardProps) => {
           derecha hacia donde le corresponde la imagen de la tarjeta.
         </h4>
       </div>
-{/*       <ProgressBar
-        className="wrapper"
-        completed={exerciseCount}
-        maxCompleted={2}
-        customLabel={`${exerciseCount}/2`}
-        animateOnRender={true} bgColor="#4B8BE6"
-      /> */}
       <div className="container-principal-game">
         <div className="container-card">
           <section className="id-card">
@@ -198,8 +190,8 @@ const IdCard = ({ exerciseCount, setExerciseCount }: IdCardProps) => {
               </div>
 
               <div className="container-labels">
-                {columnsInfo.map((column: any) => (
-                  <>
+                {columnsInfo.map((column: any, index: number) => (
+                  <div key={index}>
                     {column.draggable === true ? (
                       <div className="container-info" key={column.id}>
                         <p>{column.name}</p>
@@ -244,7 +236,7 @@ const IdCard = ({ exerciseCount, setExerciseCount }: IdCardProps) => {
                         <div>{personInfo[column.id - 1]?.description}</div>
                       </div>
                     )}
-                  </>
+                  </div>
                 ))}
               </div>
             </div>

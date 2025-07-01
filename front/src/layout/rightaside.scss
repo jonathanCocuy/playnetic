@@ -38,10 +38,10 @@
       gap: 15px;
 
       .item {
+        border: none;
+        padding: 8px;
         font-size: 20px;
         border-radius: 8px;
-        padding: 8px;
-        border: none;
         box-shadow: 1px 0px 20px 3px rgba(0, 0, 0, 0.5);
       }
 
@@ -62,8 +62,8 @@
       }
 
       .lettersoup {
-        background: goldenrod;
         color: #000;
+        background: goldenrod;
 
         &:hover {
           background: rgb(141, 107, 20);
@@ -111,8 +111,8 @@
           color: goldenrod;
 
           &:hover {
-            transform: scale(1.1);
             transition: 1s ease;
+            transform: scale(1.1);
           }
         }
 

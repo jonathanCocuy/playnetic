@@ -1,15 +1,15 @@
 .main_layout {
   display: flex;
-  min-height: 100vh;
   overflow-y: auto;
+  min-height: 100vh;
 
   .content_center {
-    position: relative;
     width: 100%;
-    flex: 1;
+    position: relative;
+    padding-top: 120px;
     display: flex;
     flex-direction: column;
-    padding-top: 120px;
+    flex: 1;
 
     .game {
       padding: 32px;

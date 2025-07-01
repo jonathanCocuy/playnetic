@@ -1,17 +1,17 @@
 @use "../styles/vars.scss" as vars;
 
 .topbar {
-  z-index: 1000;
   height: 100px;
-  background: #404040;
+  z-index: 1000;
   border-radius: 16px;
+  background: #404040;
   position: fixed;
   top: 20px;
   left: 130px;
   right: 415px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 
   .container_search_input {
     margin-left: 70px;
@@ -61,10 +61,10 @@
   }
 
   .container_profile {
-    position: relative;
     padding: 8px;
-    border-radius: 8px;
+    position: relative;
     margin-right: 50px;
+    border-radius: 8px;
     box-shadow: 1px 0px 19px 6px rgba(0, 0, 0, 0.1);
     display: flex;
     gap: 10px;
@@ -87,13 +87,13 @@
     }
 
     .button_profile {
-      background: transparent;
       border: none;
-      border-radius: 16px;
       padding: 4px;
+      border-radius: 16px;
+      background: transparent;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       gap: 5px;
 
       &:hover {
@@ -116,15 +116,15 @@
       padding: 8px;
       background: #404040;
       position: absolute;
-      top: 75px;
       left: 0;
+      top: 75px;
       display: flex;
       flex-direction: column;
 
       .container_option {
+        width: 100%;
         display: flex;
         list-style: none;
-        width: 100%;
 
         .options_menu {
           width: 100%;

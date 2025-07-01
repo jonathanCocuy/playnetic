@@ -1,6 +1,7 @@
-import "./rightaside.scss";
 import ProgressBar from "@ramonak/react-progress-bar";
+// React Icons
 import { BiSolidStar, BiSolidStarHalf, BiStar } from "react-icons/bi";
+import "./rightaside.scss";
 
 interface RightAsideProps {
   exerciseCount: number;
