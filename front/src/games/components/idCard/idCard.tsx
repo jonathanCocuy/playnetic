@@ -39,14 +39,14 @@ const IdCard = ({ exerciseCount, setExerciseCount }: IdCardProps) => {
       };
     }
 
-    function ramdomInfo(max: number) {
+    function randomInfo(max: number) {
       return Math.round(Math.random() * max);
     }
 
-    let getName = options[0][ramdomInfo(1)];
-    let getLastName = options[1][ramdomInfo(1)];
-    let getAge = options[2][ramdomInfo(1)];
-    let getNationality =
+    const getName = options[0][randomInfo(1)];
+    const getLastName = options[1][randomInfo(1)];
+    const getAge = options[2][randomInfo(1)];
+    const getNationality =
       getName?.gender === "male" ? options[3][0] : options[3][1];
 
     if (levelCount === 1) {
@@ -67,11 +67,11 @@ const IdCard = ({ exerciseCount, setExerciseCount }: IdCardProps) => {
     return optionInfo.filter((item) => item.list === list);
   };
 
-  const startDrag = (evt: any, item: InterfaceTypes) => {
-    evt.dataTransfer.setData("itemID", item.id);
+  const startDrag = (evt: React.DragEvent<HTMLDivElement>, item: InterfaceTypes) => {
+    evt.dataTransfer.setData("itemID", item.id.toString());
   };
 
-  const draggingOver = (evt: any) => {
+  const draggingOver = (evt: React.DragEvent<HTMLDivElement>) => {
     evt.preventDefault();
   };
 
@@ -82,14 +82,14 @@ const IdCard = ({ exerciseCount, setExerciseCount }: IdCardProps) => {
     setCorrectAnswers(newAnswers);
   }
 
-  const onDrop = (evt: any, list: number, type: string) => {
+  const onDrop = (evt: React.DragEvent<HTMLDivElement>, list: number, type: string) => {
     const itemID = evt.dataTransfer.getData("itemID");
-    const item = optionInfo.find((item) => item.id == itemID);
+    const item = optionInfo.find((item) => item.id.toString() == itemID);
     if (!item) return;
     item.list = list;
 
     const newState = optionInfo.map((optionInfo) => {
-      if (optionInfo.id === itemID) return item;
+      if (optionInfo.id.toString() === itemID) return item;
       return optionInfo;
     });
 
@@ -190,7 +190,7 @@ const IdCard = ({ exerciseCount, setExerciseCount }: IdCardProps) => {
               </div>
 
               <div className="container-labels">
-                {columnsInfo.map((column: any, index: number) => (
+                {columnsInfo.map((column, index) => (
                   <div key={index}>
                     {column.draggable === true ? (
                       <div className="container-info" key={column.id}>
@@ -204,7 +204,7 @@ const IdCard = ({ exerciseCount, setExerciseCount }: IdCardProps) => {
                               onDrop(evt, column.columnNumber, column.type)
                             }
                           >
-                            {getList(column.columnNumber).map((item: any) => (
+                            {getList(column.columnNumber).map((item) => (
                               <div
                                 key={item.id}
                                 className="dd-element"
@@ -217,7 +217,7 @@ const IdCard = ({ exerciseCount, setExerciseCount }: IdCardProps) => {
                           </div>
                         ) : (
                           <div className="dd-zone">
-                            {getList(column.columnNumber).map((item: any) => (
+                            {getList(column.columnNumber).map((item) => (
                               <div
                                 key={item.id}
                                 className="dd-element"
