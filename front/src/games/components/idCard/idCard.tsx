@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import ImgIdCard from "../../Images/id-image.avif";
 import { Level1 } from "../../Levels/level-1";
 import type { InterfaceTypes } from "../../Interface/Levels-types";
@@ -21,12 +21,7 @@ const IdCard = ({ exerciseCount, setExerciseCount }: IdCardProps) => {
   const [columnsInfo, setColumnsInfo] = useState<ColumnsTypes[]>(columns[0]);
   const [correctAnswers, setCorrectAnswers] = useState<string[]>([]);
 
-  useEffect(() => {
-    getPerson();
-    changeLevel();
-  }, [levelCount, exerciseCount]);
-
-  function getPerson() {
+  const getPerson = useCallback(() => {
     const person: InterfaceTypes[] = [];
     const selectedOptions: InterfaceTypes[] = [];
     function ddzone(numberlist: number) {
@@ -61,7 +56,7 @@ const IdCard = ({ exerciseCount, setExerciseCount }: IdCardProps) => {
 
     setOptionInfo(selectedOptions.sort(() => Math.random() - 0.6));
     setPersonInfo(person);
-  }
+  }, [options, levelCount]);
 
   const getList = (list: number) => {
     return optionInfo.filter((item) => item.list === list);
@@ -104,7 +99,7 @@ const IdCard = ({ exerciseCount, setExerciseCount }: IdCardProps) => {
     }
   };
 
-  function changeLevel() {
+  const changeLevel = useCallback(() => {
     if (levelCount === 1 && exerciseCount > 2) {
       setExerciseCount(1);
       setLevelCount(2);
@@ -130,13 +125,18 @@ const IdCard = ({ exerciseCount, setExerciseCount }: IdCardProps) => {
         icon: "success",
       });
     }
-  }
+  }, [levelCount, exerciseCount, setExerciseCount]);
+
+  useEffect(() => {
+    getPerson();
+    changeLevel();
+  }, [levelCount, exerciseCount, getPerson, changeLevel]);
 
   function changeExercise() {
     setTimeout(() => {
       changeLevel();
       setExerciseCount(exerciseCount + 1);
-    }, 2000)
+    }, 1000)
     setCorrectAnswers([]);
     getPerson();
     Swal.fire({

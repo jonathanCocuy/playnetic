@@ -1,21 +1,79 @@
 /* 
 ? Principal colors
 */
-$white: #FFF;
+$white: #fff;
 $black: #000;
-
 
 /* 
 * Gradient colors
 */
-$search_input_color: linear-gradient(90deg, #ff6464 0%, #ffbf59 50%, #47c9ff 100%);
+$search_input_color: linear-gradient(
+  90deg,
+  #ff6464 0%,
+  #ffbf59 50%,
+  #47c9ff 100%
+);
 
 /* 
 ? Animations
 */
 
 @keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
   50% {
-    transform: scale(1.5);
+    transform: scale(1.1);
+  }
+}
+
+@keyframes changeColor8 {
+  from {
+    background-color: #2781c3;
+  }
+
+  to {
+    background-color: #27c39f;
+  }
+}
+
+@keyframes lightEffect8 {
+  from {
+    box-shadow: 1px 1px 5px #27c39f;
+  }
+
+  to {
+    box-shadow: 0 0 2px #27c39f;
+  }
+}
+
+@keyframes greenLight8 {
+  from {
+  }
+
+  to {
+    box-shadow: inset 0px 0px 32px #27c39f;
+  }
+}
+
+@keyframes leftArrow8 {
+  from {
+    transform: translate(0px);
+  }
+
+  to {
+    transform: translateX(10px);
+  }
+}
+
+@keyframes rightArrow8 {
+  from {
+    transform: translate(0px);
+  }
+
+  to {
+    transform: translateX(-10px);
   }
 }

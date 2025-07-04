@@ -1,3 +1,5 @@
+@use "../styles/vars" as *;
+
 .right_aside {
   width: 385px;
   height: 100vh;
@@ -127,16 +129,5 @@
         }
       }
     }
-  }
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.1);
   }
 }
