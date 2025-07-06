@@ -6,10 +6,6 @@ import { Topbar } from "./Topbar";
 import { RightAside } from "./RightAside";
 // Games
 import IdCard from "../games/components/idCard/idCard";
-import GameCard from "../components/GameCard/GameCard";
-import { ButtonGame } from "../components/ButtonGame/ButtonGame";
-
-import DND from "../assets/ImageGame.png";
 
 import "./mainlayout.scss";
 
@@ -30,14 +26,6 @@ export const MainLayout = () => {
           <Topbar />
           <div className="game" key={exerciseCount}>
             {LOGGED && <IdCard exerciseCount={exerciseCount} setExerciseCount={setExerciseCount} />}
-            <GameCard className="custom-spotlight-card" spotlightColor="rgba(0, 229, 255, 0.2)">
-              <div className="game_card_content">
-                <h1>Game Card</h1>
-                <img src={DND} alt="DND" width={100} height={150}/>
-                <p>This is a game card</p>
-                <ButtonGame />
-              </div>
-            </GameCard>
           </div>
         </div>
         <RightAside exerciseCount={exerciseCount} />
