@@ -9,6 +9,8 @@ import IdCard from "../games/components/idCard/idCard";
 
 import "./mainlayout.scss";
 
+// import LoginScreen from "../screens/loginScreen/LoginScreen";
+
 export const MainLayout = () => {
   const [exerciseCount, setExerciseCount] = useState(1);
 
@@ -32,6 +34,8 @@ export const MainLayout = () => {
         </div>
         <RightAside exerciseCount={exerciseCount} />
       </div>
+
+      {/* <LoginScreen/> */}
     </BrowserRouter>
   );
 };
