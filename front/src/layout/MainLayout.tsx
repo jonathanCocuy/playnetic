@@ -10,6 +10,8 @@ import GameCard from "../components/GameCard/GameCard";
 
 import "./mainlayout.scss";
 
+// import LoginScreen from "../screens/loginScreen/LoginScreen";
+
 export const MainLayout = () => {
   const [logged, setLogged] = useState(true)
   const [exerciseCount, setExerciseCount] = useState(1);
@@ -48,6 +50,8 @@ export const MainLayout = () => {
         </div>
         <RightAside exerciseCount={exerciseCount} />
       </div>
+
+      {/* <LoginScreen/> */}
     </BrowserRouter>
   );
 };

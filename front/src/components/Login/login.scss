@@ -1,0 +1,98 @@
+.login{
+  height: 520px;
+  width: 350px;
+  padding: 40px;
+  border-radius: 16px;
+  background-color: rgba(143, 143, 143, 0.233);
+  color: white; 
+  backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
+
+  position: absolute;
+  top: calc(50% - 260px);
+  left: calc(50% - 175px);
+  z-index: 1000;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 18px;
+  text-align: justify;
+  line-height: 185%;
+
+
+  form{
+    width: 100%;
+
+    .input_container {
+      position: relative;
+      padding: 20px 0 0;
+      width: 100%;
+      max-width: 180px;
+
+      .form_field {
+        font-family: inherit;
+        width: 100%;
+        border: none;
+        border-bottom: 2px solid #9b9b9b;
+        outline: 0;
+        font-size: 17px;
+        color: white;
+        padding: 7px 0;
+        background: transparent;
+        transition: border-color 0.2s;
+      }
+      
+      .form_field::placeholder {
+        color: transparent;
+      }
+      
+      .form_field:placeholder-shown ~ .form_label {
+        font-size: 17px;
+        cursor: text;
+        top: 20px;
+      }
+      
+      .form_label {
+        position: absolute;
+        top: 0;
+        display: block;
+        transition: 0.2s;
+        font-size: 17px;
+        color: #9b9b9b;
+        pointer-events: none;
+      }
+      
+      .form_field:focus {
+        padding-bottom: 6px;
+        font-weight: 700;
+        border-width: 3px;
+        border-image: linear-gradient(to right, #116399, #38caef);
+        border-image-slice: 1;
+      }
+      
+      .form_field:focus ~ .form_label {
+        position: absolute;
+        top: 0;
+        display: block;
+        transition: 0.2s;
+        font-size: 17px;
+        color: #38caef;
+        font-weight: 700;
+      }
+      
+      .form_field:required, .form_field:invalid {
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+button{
+  background-color: #6c3dee;
+}
+
