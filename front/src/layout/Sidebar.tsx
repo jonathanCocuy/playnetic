@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 // React Icons
 import { IoNotifications, IoGameController, IoHome, IoPerson, IoStar, IoLogOut } from "react-icons/io5";
+
 import "./sidebar.scss";
 
 export const Sidebar = () => {

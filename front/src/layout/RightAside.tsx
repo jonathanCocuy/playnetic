@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import ProgressBar from "@ramonak/react-progress-bar";
 // React Icons
 import { BiSolidStar, BiSolidStarHalf, BiStar } from "react-icons/bi";
@@ -11,18 +12,18 @@ export const RightAside = ({ exerciseCount }: RightAsideProps) => {
   return (
     <div className="right_aside">
       <div className="categories">
-        <div className="container_title">
-          <h2 className="title">Categorías</h2>
-        </div>
+        <h2 className="title">Categorías</h2>
         <div className="category_list">
-          <button className="item selection">Selección</button>
-          <button className="item relationship">Relacionar</button>
-          <button className="item dnd">Arrastre</button>
-          <button className="item lettersoup">Sopa de letras</button>
+          <Link className="item selection" to={"/selection"}>Selección</Link>
+          <Link className="item relationship" to={"/relationship"}>Relacionar</Link>
+          <Link className="item dnd" to={"/dnd"}>Arrastre</Link>
+          <Link className="item lettersoup" to={"/lettersoup"}>Sopa de letras</Link>
+          <Link className="item crossword" to={"/crossword"}>Crucigrama</Link>
+          <Link className="item writing" to={"/writing"}>Escritura</Link>
         </div>
       </div>
       <div className="points">
-        <div>
+        <div className="container_title">
           <h2 className="title">Puntos</h2>
           <div className="progress">
             <p className="progress_text">Tu progreso</p>

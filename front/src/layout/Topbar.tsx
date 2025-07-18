@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { IoSearch } from "react-icons/io5";
 import { BsCaretDownFill } from "react-icons/bs";
 // Images
-import Profile from "../assets/My-photo-profile.png";
+import User from "../assets/user.png";
 import "./topbar.scss";
 
 export const Topbar = () => {
@@ -34,7 +34,7 @@ export const Topbar = () => {
           <p className="name">Jonathan Cocuy</p>
         </div>
         <button className={profileOpen ? "button_profile active" : "button_profile"} onClick={openIt}>
-          <img className="profile_image" src={Profile} alt="Profile image" />
+          <img className="profile_image" src={User} alt="Profile image" />
           <BsCaretDownFill size={12} color="white" />
         </button>
         <div className={profileOpen ? "menu open" : "menu close"}>

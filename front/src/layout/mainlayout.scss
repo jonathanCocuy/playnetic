@@ -1,3 +1,5 @@
+@use "../styles/vars" as *;
+
 .main_layout {
   display: flex;
   overflow-y: auto;
@@ -19,6 +21,16 @@
       top: 150px;
       left: 130px;
       right: 415px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+
+      .game_container {
+        display: flex;
+        gap: 32px;
+      }
     }
   }
 }
