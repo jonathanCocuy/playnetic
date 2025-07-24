@@ -1,14 +1,17 @@
 import { Link } from "react-router-dom";
 import ProgressBar from "@ramonak/react-progress-bar";
-// React Icons
-import { BiSolidStar, BiSolidStarHalf, BiStar } from "react-icons/bi";
 import "./rightaside.scss";
-
+// Redux
+import { RootState } from "../app/store";
+import { useSelector } from "react-redux";
 interface RightAsideProps {
   exerciseCount: number;
+  levelCount: number;
 }
 
-export const RightAside = ({ exerciseCount }: RightAsideProps) => {
+export const RightAside = ({ exerciseCount, levelCount }: RightAsideProps) => {
+  const points = useSelector((state: RootState) => state.game.pointsGame);
+
   return (
     <div className="right_aside">
       <div className="categories">
@@ -26,10 +29,19 @@ export const RightAside = ({ exerciseCount }: RightAsideProps) => {
         <div className="container_title">
           <h2 className="title">Puntos</h2>
           <div className="progress">
-            <p className="progress_text">Tu progreso</p>
+            <p className="progress_text">Nivel actual</p>
             <ProgressBar
               className="progress_bar"
               bgColor="blue"
+              height="30px"
+              completed={levelCount}
+              maxCompleted={2}
+              customLabel={`${levelCount}/2`}
+            />
+            <p className="progress_text">Ejercicio actual</p>
+            <ProgressBar
+              className="progress_bar"
+              bgColor="red"
               height="30px"
               completed={exerciseCount}
               maxCompleted={2}
@@ -37,15 +49,9 @@ export const RightAside = ({ exerciseCount }: RightAsideProps) => {
             />
           </div>
           <div className="progress">
-            <p className="progress_text">Tus estrellas</p>
+            <p className="progress_text">Tus puntos</p>
             <div className="container_stars">
-              <BiSolidStar className="star complete" size={40} />
-              <BiSolidStar className="star complete" size={40} />
-              <BiSolidStar className="star complete" size={40} />
-              <BiSolidStar className="star complete" size={40} />
-              <BiSolidStarHalf className="star mid" size={40} />
-              <BiStar className="star non" size={40} />
-              <BiStar className="star non" size={40} />
+              <p className="points_text">{points}/1000</p>
             </div>
           </div>
         </div>

@@ -2,11 +2,9 @@ import "./App.css";
 import { MainLayout } from "./layout/MainLayout";
 
 function App() {
-  const LOGGED = true
-
   return (
     <div>
-      {LOGGED && <MainLayout />}
+      <MainLayout />
     </div>
   );
 }

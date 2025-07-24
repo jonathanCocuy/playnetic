@@ -1,7 +1,7 @@
 @use "../styles/vars" as *;
 
 .right_aside {
-  width: 385px;
+  width: 20%;
   height: 100vh;
   background: #404040;
   position: fixed;
@@ -148,6 +148,10 @@
       }
 
       .container_stars {
+        .points_text {
+          font-size: 45px;
+        }
+
         .star {
           color: goldenrod;
 

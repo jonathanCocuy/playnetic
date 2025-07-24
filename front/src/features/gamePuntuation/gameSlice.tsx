@@ -1,12 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-export interface gameState {
-    currentLevel: number; // 1 - 3
-    currentExercise: number; // 1 - 5
-    pointsGame: number; // 0 - 150
-    totalPoints: number;
-    gamesCompleted: number;
-}
+import { gameState } from "./types";
 
 const initialState: gameState = {
     currentLevel: 1,
@@ -46,3 +39,6 @@ export const gameSlice = createSlice({
         },
     }
 })
+
+export const { setCurrentLevel, setCurrentExercise, setPointsGame, addTotalPoints, setGamesCompleted } = gameSlice.actions;
+export default gameSlice.reducer;

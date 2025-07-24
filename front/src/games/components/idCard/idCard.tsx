@@ -7,19 +7,27 @@ import { columns } from "../../Levels/columns";
 import { Level2 } from "../../Levels/level-2";
 import Swal from "sweetalert2";
 import "./idCard.css";
+// Redux
+import { useDispatch, useSelector } from "react-redux";
+import { setPointsGame } from "../../../features/gamePuntuation/gameSlice";
+import { RootState } from "../../../app/store";
 
 interface IdCardProps {
   exerciseCount: number;
   setExerciseCount: React.Dispatch<React.SetStateAction<number>>;
+  levelCount: number;
+  setLevelCount: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const IdCard = ({ exerciseCount, setExerciseCount }: IdCardProps) => {
+const IdCard = ({ exerciseCount, setExerciseCount, levelCount, setLevelCount }: IdCardProps) => {
   const [options, setOptions] = useState<InterfaceTypes[][]>(Level1);
   const [personInfo, setPersonInfo] = useState<InterfaceTypes[]>([]);
   const [optionInfo, setOptionInfo] = useState<InterfaceTypes[]>([]);
-  const [levelCount, setLevelCount] = useState<number>(1);
   const [columnsInfo, setColumnsInfo] = useState<ColumnsTypes[]>(columns[0]);
   const [correctAnswers, setCorrectAnswers] = useState<string[]>([]);
+
+  const points = useSelector((state: RootState) => state.game.pointsGame);
+  const dispatch = useDispatch();
 
   const getPerson = useCallback(() => {
     const person: InterfaceTypes[] = [];
@@ -125,7 +133,7 @@ const IdCard = ({ exerciseCount, setExerciseCount }: IdCardProps) => {
         icon: "success",
       });
     }
-  }, [levelCount, exerciseCount, setExerciseCount]);
+  }, [levelCount, exerciseCount, setExerciseCount, setLevelCount]);
 
   useEffect(() => {
     getPerson();
@@ -148,10 +156,13 @@ const IdCard = ({ exerciseCount, setExerciseCount }: IdCardProps) => {
 
   function validateAnswer() {
     if (levelCount === 1 && correctAnswers.length === 2) {
+      dispatch(setPointsGame(points + 10));
       changeExercise();
     } else if (levelCount === 2 && correctAnswers.length === 3) {
+      dispatch(setPointsGame(points + 10));
       changeExercise();
     } else {
+      dispatch(setPointsGame(points - 5));
       Swal.fire({
         title: "Respuesta incorrecta",
         text: "Intentalo de Nuevo",

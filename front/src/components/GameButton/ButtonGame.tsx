@@ -5,6 +5,7 @@ interface GameButtonProps {
 }
 
 export const GameButton = ({ name }: GameButtonProps) => {
+
   return (
     <button className="button_game">
       {name}

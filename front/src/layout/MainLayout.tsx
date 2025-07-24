@@ -15,6 +15,7 @@ import "./mainlayout.scss";
 export const MainLayout = () => {
   const [logged, setLogged] = useState(true)
   const [exerciseCount, setExerciseCount] = useState(1);
+  const [levelCount, setLevelCount] = useState(1);
 
   return (
     <BrowserRouter
@@ -27,10 +28,16 @@ export const MainLayout = () => {
         <Sidebar />
         <div className="content_center">
           <Topbar />
-          <div className="game" key={exerciseCount}>
+          <div className="game" key={levelCount}>
             <button onClick={() => setLogged(!logged)}>Cambiar estado</button>
             <div className="game_container">
-              {logged && <IdCard exerciseCount={exerciseCount} setExerciseCount={setExerciseCount} />}
+              {logged && 
+              <IdCard 
+                exerciseCount={exerciseCount} 
+                setExerciseCount={setExerciseCount} 
+                levelCount={levelCount} 
+                setLevelCount={setLevelCount} 
+              />}
               {!logged && (
                 <>
                   <GameCard
@@ -48,7 +55,7 @@ export const MainLayout = () => {
             </div> 
           </div>
         </div>
-        <RightAside exerciseCount={exerciseCount} />
+        <RightAside exerciseCount={exerciseCount} levelCount={levelCount} />
       </div>
 
       {/* <LoginScreen/> */}
