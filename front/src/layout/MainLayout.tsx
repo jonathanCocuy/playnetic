@@ -15,7 +15,7 @@ import "./mainlayout.scss";
 export const MainLayout = () => {
   const [logged, setLogged] = useState(true)
   const [exerciseCount, setExerciseCount] = useState(1);
-  const [levelCount, setLevelCount] = useState(1);
+  const [levelCount, setLevelCount] = useState(2);
 
   return (
     <BrowserRouter

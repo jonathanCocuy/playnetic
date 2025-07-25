@@ -36,7 +36,7 @@ const IdCard = ({ exerciseCount, setExerciseCount, levelCount, setLevelCount }: 
       return {
         id: 1,
         type: "dd-zone",
-        description: "dd-zone",
+        description: "",
         gender: "",
         list: numberlist,
       };
@@ -156,13 +156,13 @@ const IdCard = ({ exerciseCount, setExerciseCount, levelCount, setLevelCount }: 
 
   function validateAnswer() {
     if (levelCount === 1 && correctAnswers.length === 2) {
-      dispatch(setPointsGame(points + 10));
+      /* dispatch(setPointsGame(points + 10)); */
       changeExercise();
     } else if (levelCount === 2 && correctAnswers.length === 3) {
-      dispatch(setPointsGame(points + 10));
+      /* dispatch(setPointsGame(points + 10)); */
       changeExercise();
     } else {
-      dispatch(setPointsGame(points - 5));
+      /* dispatch(setPointsGame(points - 5)); */
       Swal.fire({
         title: "Respuesta incorrecta",
         text: "Intentalo de Nuevo",
@@ -203,7 +203,7 @@ const IdCard = ({ exerciseCount, setExerciseCount, levelCount, setLevelCount }: 
               <div className="container-labels">
                 {columnsInfo.map((column, index) => (
                   <div key={index}>
-                    {column.draggable === true ? (
+                    {column.draggable ? (
                       <div className="container-info" key={column.id}>
                         <p>{column.name}</p>
                         {getList(column.columnNumber).length < 1 ? (
@@ -235,7 +235,7 @@ const IdCard = ({ exerciseCount, setExerciseCount, levelCount, setLevelCount }: 
                                 draggable
                                 onDragStart={(evt) => startDrag(evt, item)}
                               >
-                                <p>{item?.description}</p>
+                                <p>{item.description}</p>
                               </div>
                             ))}
                           </div>
