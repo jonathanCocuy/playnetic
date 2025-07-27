@@ -156,13 +156,13 @@ const IdCard = ({ exerciseCount, setExerciseCount, levelCount, setLevelCount }: 
 
   function validateAnswer() {
     if (levelCount === 1 && correctAnswers.length === 2) {
-      /* dispatch(setPointsGame(points + 10)); */
+      dispatch(setPointsGame(points + 10));
       changeExercise();
     } else if (levelCount === 2 && correctAnswers.length === 3) {
-      /* dispatch(setPointsGame(points + 10)); */
+      dispatch(setPointsGame(points + 10));
       changeExercise();
     } else {
-      /* dispatch(setPointsGame(points - 5)); */
+      dispatch(setPointsGame(points - 5));
       Swal.fire({
         title: "Respuesta incorrecta",
         text: "Intentalo de Nuevo",

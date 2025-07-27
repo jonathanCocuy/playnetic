@@ -147,10 +147,9 @@
         margin: 0 4px;
       }
 
-      .container_stars {
-        .points_text {
-          font-size: 45px;
-        }
+      .container_points {
+        display: flex;
+        font-size: 45px;
 
         .star {
           color: goldenrod;

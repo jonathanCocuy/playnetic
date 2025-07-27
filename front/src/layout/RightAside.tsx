@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import ProgressBar from "@ramonak/react-progress-bar";
 import "./rightaside.scss";
+import CountUp from "../components/CounterFramer/CountUp";
 // Redux
 import { RootState } from "../app/store";
 import { useSelector } from "react-redux";
@@ -50,8 +51,16 @@ export const RightAside = ({ exerciseCount, levelCount }: RightAsideProps) => {
           </div>
           <div className="progress">
             <p className="progress_text">Tus puntos</p>
-            <div className="container_stars">
-              <p className="points_text">{points}/1000</p>
+            <div className="container_points">
+              <CountUp
+                from={0}
+                to={points}
+                separator=","
+                direction="up"
+                duration={1}
+                className="count-up-text"
+              />
+              <p className="points_text">/1000</p>
             </div>
           </div>
         </div>
