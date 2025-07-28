@@ -7,6 +7,7 @@ const initialState: gameState = {
     pointsGame: 0,
     totalPoints: 0,
     gamesCompleted: 0,
+    color: "normal",
 }
 
 export const gameSlice = createSlice({
@@ -24,8 +25,9 @@ export const gameSlice = createSlice({
         },
         
         // Add points to the current game
-        setPointsGame: (state, action: PayloadAction<number>) => {
-            state.pointsGame = action.payload;
+        setPointsGame: (state, action: PayloadAction<{points: number, color: "green" | "red" | "normal"}>) => {
+            state.pointsGame = action.payload.points;
+            state.color = action.payload.color;
         },
   
         // Set total accumulated points

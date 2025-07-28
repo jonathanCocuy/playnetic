@@ -12,6 +12,9 @@ interface RightAsideProps {
 
 export const RightAside = ({ exerciseCount, levelCount }: RightAsideProps) => {
   const points = useSelector((state: RootState) => state.game.pointsGame);
+  const color = useSelector((state: RootState) => state.game.color);
+
+  console.log(points);
 
   return (
     <div className="right_aside">
@@ -38,6 +41,7 @@ export const RightAside = ({ exerciseCount, levelCount }: RightAsideProps) => {
               completed={levelCount}
               maxCompleted={2}
               customLabel={`${levelCount}/2`}
+              borderRadius="8px"
             />
             <p className="progress_text">Ejercicio actual</p>
             <ProgressBar
@@ -47,6 +51,7 @@ export const RightAside = ({ exerciseCount, levelCount }: RightAsideProps) => {
               completed={exerciseCount}
               maxCompleted={2}
               customLabel={`${exerciseCount}/2`}
+              borderRadius="8px"
             />
           </div>
           <div className="progress">
@@ -58,7 +63,7 @@ export const RightAside = ({ exerciseCount, levelCount }: RightAsideProps) => {
                 separator=","
                 direction="up"
                 duration={1}
-                className="count-up-text"
+                className={color}
               />
               <p className="points_text">/1000</p>
             </div>

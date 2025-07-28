@@ -145,29 +145,23 @@
 
       .progress_bar {
         margin: 0 4px;
+        border-radius: 0px;
       }
 
       .container_points {
         display: flex;
         font-size: 45px;
 
-        .star {
-          color: goldenrod;
-
-          &:hover {
-            transition: 1s ease;
-            transform: scale(1.1);
-          }
+        .green {
+          color: green;
         }
 
-        .complete {
-          color: goldenrod;
-          animation: pulse 0.5s ease-in-out infinite;
+        .red {
+          color: red;
         }
 
-        .mid {
-          color: goldenrod;
-          animation: pulse 1s ease-in-out infinite;
+        .normal {
+          color: #fff;
         }
       }
     }

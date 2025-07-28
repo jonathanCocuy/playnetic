@@ -4,4 +4,5 @@ export interface gameState {
     pointsGame: number; // 0 - 150
     totalPoints: number;
     gamesCompleted: number;
+    color: "green" | "red" | "normal";
 }

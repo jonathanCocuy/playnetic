@@ -156,14 +156,18 @@ const IdCard = ({ exerciseCount, setExerciseCount, levelCount, setLevelCount }: 
 
   function validateAnswer() {
     if (levelCount === 1 && correctAnswers.length === 2) {
-      dispatch(setPointsGame(points + 10));
+      dispatch(setPointsGame({points: points + 10, color: "green"}));
       changeExercise();
     } else if (levelCount === 2 && correctAnswers.length === 3) {
-      dispatch(setPointsGame(points + 10));
+      dispatch(setPointsGame({points: points + 10 , color: "green"}));
       changeExercise();
     } else {
-      dispatch(setPointsGame(points - 5));
-      Swal.fire({
+        const newPoints = points - 5 < 0 ? 0 : points - 5;
+        dispatch(setPointsGame({
+          points: newPoints, 
+          color: newPoints === 0 ? "normal" : "red"
+        }));
+        Swal.fire({
         title: "Respuesta incorrecta",
         text: "Intentalo de Nuevo",
         icon: "error",
