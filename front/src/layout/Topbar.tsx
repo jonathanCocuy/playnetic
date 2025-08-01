@@ -31,7 +31,7 @@ export const Topbar = () => {
       <div className="container_profile">
         <div className="text_name">
           <p className="text">Disfruta tu juego,</p>
-          <p className="name">Jonathan Cocuy</p>
+          <p className="name">Usuario</p>
         </div>
         <button className={profileOpen ? "button_profile active" : "button_profile"} onClick={openIt}>
           <img className="profile_image" src={User} alt="Profile image" />

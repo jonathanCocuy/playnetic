@@ -7,7 +7,6 @@ interface GameCardProps extends React.PropsWithChildren {
   title: string;
   image: string;
   className?: string;
-  description: string;
   spotlightColor?: `rgba(${number}, ${number}, ${number}, ${number})`;
 }
 
@@ -41,8 +40,7 @@ const GameCard: React.FC<GameCardProps> = ({
   className = "",
   spotlightColor,
   title,
-  image,
-  description
+  image
 }) => {
 
   const autoColor = COLORS[getRandomColor()] as `rgba(${number}, ${number}, ${number}, ${number})`;
@@ -73,7 +71,6 @@ const GameCard: React.FC<GameCardProps> = ({
       <img src={image} alt="DND" className="game_card_image" />
       <div className="container_text">
         <h1 className="title">{title}</h1>
-        <p className="description">{description}</p>
       </div>
       <div className="container_button">
         <GameButton name="J U G A R" />

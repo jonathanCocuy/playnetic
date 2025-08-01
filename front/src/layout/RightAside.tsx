@@ -5,6 +5,7 @@ import CountUp from "../components/CounterFramer/CountUp";
 // Redux
 import { RootState } from "../app/store";
 import { useSelector } from "react-redux";
+
 interface RightAsideProps {
   exerciseCount: number;
   levelCount: number;
@@ -14,8 +15,6 @@ export const RightAside = ({ exerciseCount, levelCount }: RightAsideProps) => {
   const points = useSelector((state: RootState) => state.game.pointsGame);
   const color = useSelector((state: RootState) => state.game.color);
 
-  console.log(points);
-
   return (
     <div className="right_aside">
       <div className="categories">
@@ -23,10 +22,12 @@ export const RightAside = ({ exerciseCount, levelCount }: RightAsideProps) => {
         <div className="category_list">
           <Link className="item selection" to={"/selection"}>Selección</Link>
           <Link className="item relationship" to={"/relationship"}>Relacionar</Link>
-          <Link className="item dnd" to={"/dnd"}>Arrastre</Link>
+          <Link className="item english" to={"/english"}>Inglés</Link>
           <Link className="item lettersoup" to={"/lettersoup"}>Sopa de letras</Link>
+          <Link className="item dnd" to={"/dnd"}>Arrastre</Link>
           <Link className="item crossword" to={"/crossword"}>Crucigrama</Link>
           <Link className="item writing" to={"/writing"}>Escritura</Link>
+          <Link className="item memory" to={"/memory"}>Memoria</Link>
         </div>
       </div>
       <div className="points">
@@ -36,7 +37,7 @@ export const RightAside = ({ exerciseCount, levelCount }: RightAsideProps) => {
             <p className="progress_text">Nivel actual</p>
             <ProgressBar
               className="progress_bar"
-              bgColor="blue"
+              bgColor="#FFB347"
               height="30px"
               completed={levelCount}
               maxCompleted={2}
@@ -46,7 +47,7 @@ export const RightAside = ({ exerciseCount, levelCount }: RightAsideProps) => {
             <p className="progress_text">Ejercicio actual</p>
             <ProgressBar
               className="progress_bar"
-              bgColor="red"
+              bgColor="#69D2E7"
               height="30px"
               completed={exerciseCount}
               maxCompleted={2}
@@ -65,7 +66,7 @@ export const RightAside = ({ exerciseCount, levelCount }: RightAsideProps) => {
                 duration={1}
                 className={color}
               />
-              <p className="points_text">/1000</p>
+              <p className="points_text"> /1500</p>
             </div>
           </div>
         </div>

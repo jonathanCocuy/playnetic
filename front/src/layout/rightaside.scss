@@ -3,7 +3,7 @@
 .right_aside {
   width: 20%;
   height: 100vh;
-  background: #404040;
+  background: #E6DAF8;
   position: fixed;
   top: 0;
   right: 0;
@@ -19,6 +19,7 @@
     padding: 10px 0;
     margin-top: 30px;
     border-radius: 16px;
+    background: #5E17EB;
     box-shadow: 1px 0px 20px 3px rgba(0, 0, 0, 0.5);
 
     .title {
@@ -71,51 +72,74 @@
       }
 
       .selection {
-        background: brown;
+        background: #FF6B9D;
+        color: #fff;
 
         &:hover {
-          background: rgb(100, 23, 23);
+          background: #E55A8A;
         }
       }
 
       .dnd {
-        background: cornflowerblue;
+        background: #7FB069;
+        color: #fff;
 
         &:hover {
-          background: rgb(69, 107, 177);
+          background: #6A9A5A;
         }
       }
 
       .lettersoup {
-        color: #000;
-        background: goldenrod;
+        background: #FF9A8B;
+        color: #fff;
 
         &:hover {
-          background: rgb(141, 107, 20);
+          background: #E68A7A;
         }
       }
 
       .relationship {
-        background: darkcyan;
+        background: #6B8E23;
+        color: #fff;
 
         &:hover {
-          background: rgb(0, 92, 92);
+          background: #5A7A1E;
         }
       }
 
       .writing {
-        background: rgb(2, 252, 106);
+        background: #B8A9DC;
+        color: #fff;
 
         &:hover {
-          background: rgb(0, 168, 70);
+          background: #A395C7;
         }
       }
 
       .crossword {
-        background: rgb(204, 1, 255);
+        background: #E74C3C;
+        color: #fff;
 
         &:hover {
-          background: rgb(120, 0, 150);
+          background: #C0392B;
+        }
+      }
+
+      .memory {
+        background: #8E44AD;
+        color: #fff;
+
+        &:hover {
+          background: #7D3C98;
+        }
+      }
+
+      .english {
+        background: #F39C12;
+        color: #fff;
+
+        &:hover {
+          background: #D68910;
         }
       }
     }
@@ -126,6 +150,7 @@
     padding: 10px 0;
     margin-top: 30px;
     border-radius: 16px;
+    background: #5E17EB;
     box-shadow: 1px 0px 20px 3px rgba(0, 0, 0, 0.5);
 
     .title {
@@ -153,11 +178,11 @@
         font-size: 45px;
 
         .green {
-          color: green;
+          color: #8BC34A;
         }
 
         .red {
-          color: red;
+          color: #F44336;
         }
 
         .normal {
