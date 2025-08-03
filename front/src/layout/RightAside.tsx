@@ -27,7 +27,6 @@ export const RightAside = ({ exerciseCount, levelCount }: RightAsideProps) => {
           <Link className="item dnd" to={"/dnd"}>Arrastre</Link>
           <Link className="item crossword" to={"/crossword"}>Crucigrama</Link>
           <Link className="item writing" to={"/writing"}>Escritura</Link>
-          <Link className="item memory" to={"/memory"}>Memoria</Link>
         </div>
       </div>
       <div className="points">

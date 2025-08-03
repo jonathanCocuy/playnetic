@@ -1,0 +1,28 @@
+.crossword_games {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    .crossword_header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+
+        .crossword_title {
+            font-size: 2rem;
+            color: #4B0082;
+            font-weight: 600;
+        }
+    }
+
+    .crossword_list {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+    }                       
+} 

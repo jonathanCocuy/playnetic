@@ -9,6 +9,11 @@ import { SelectionGames } from "../games/SelectionGames/SelectionGames";
 import { DndGames } from "../games/DndGames/DndGames";
 
 import "./mainlayout.scss";
+import { EnglishGames } from "../games/EnglishGames/EnglishGames";
+import { CrosswordGames } from "../games/CrosswordGames/CrosswordGames";
+import { LetterSoupGames } from "../games/LetterSoupGames/LetterSoupGames";
+import { WritingGames } from "../games/WritingGames/WritingGames";
+import { RelationshipGames } from "../games/RelationshipGames/RelationshipGames";
 
 // import LoginScreen from "../screens/loginScreen/LoginScreen";
 
@@ -32,6 +37,11 @@ export const MainLayout = () => {
             <Routes>
               <Route path="/selection" element={<SelectionGames />} />
               <Route path="/dnd" element={<DndGames />} />
+              <Route path="/english" element={<EnglishGames />} />
+              <Route path="/lettersoup" element={<LetterSoupGames />} />
+              <Route path="/crossword" element={<CrosswordGames />} />
+              <Route path="/writing" element={<WritingGames />} />
+              <Route path="/relationship" element={<RelationshipGames />} />
             </Routes>
           </div>
         </div>

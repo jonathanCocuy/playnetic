@@ -1,0 +1,28 @@
+.english_games {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    .english_header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+
+        .english_title {
+            font-size: 2rem;
+            color: #4B0082;
+            font-weight: 600;
+        }
+    }
+
+    .english_list {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+    }                       
+} 
