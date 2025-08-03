@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 // React Icons
-import { IoSearch } from "react-icons/io5";
 import { BsCaretDownFill } from "react-icons/bs";
 // Images
 import User from "../assets/user.png";
 import "./topbar.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 export const Topbar = () => {
   const [profileOpen, setProfileOpen] = useState<boolean>(false);
@@ -17,7 +18,7 @@ export const Topbar = () => {
   return (
     <div className="topbar">
       <div className="container_search_input">
-        <IoSearch size={30} color="white" />
+        <FontAwesomeIcon icon={faMagnifyingGlass} size="2x" />
         <input
           id="search"
           name="search"

@@ -16,7 +16,7 @@
     height: 100%;
 
     .logo {
-      width: 35px;
+      width: 100px;
       padding-top: 40px;
     }
   }
@@ -47,8 +47,9 @@
         text-decoration: none;
 
         &:hover {
-          color: #3c4b7a;
-          transition: 0.3s ease;
+          color: #2d106e;
+          transform: scale(1.1);
+          transition: 0.5s ease;
         }
 
         .icon {

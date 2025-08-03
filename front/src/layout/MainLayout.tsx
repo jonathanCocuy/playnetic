@@ -5,15 +5,14 @@ import { useState } from "react";
 import { Topbar } from "./Topbar";
 import { RightAside } from "./RightAside";
 // Games
-import { SelectionGames } from "../games/SelectionGames/SelectionGames";
-import { DndGames } from "../games/DndGames/DndGames";
-
+import { DndGames } from "../gamesRender/DndGames/DndGames";
+import { SelectionGames } from "../gamesRender/SelectionGames/SelectionGames";
+import { EnglishGames } from "../gamesRender/EnglishGames/EnglishGames";
+import { CrosswordGames } from "../gamesRender/CrosswordGames/CrosswordGames";
+import { LetterSoupGames } from "../gamesRender/LetterSoupGames/LetterSoupGames";
+import { WritingGames } from "../gamesRender/WritingGames/WritingGames";
+import { RelationshipGames } from "../gamesRender/RelationshipGames/RelationshipGames";
 import "./mainlayout.scss";
-import { EnglishGames } from "../games/EnglishGames/EnglishGames";
-import { CrosswordGames } from "../games/CrosswordGames/CrosswordGames";
-import { LetterSoupGames } from "../games/LetterSoupGames/LetterSoupGames";
-import { WritingGames } from "../games/WritingGames/WritingGames";
-import { RelationshipGames } from "../games/RelationshipGames/RelationshipGames";
 
 // import LoginScreen from "../screens/loginScreen/LoginScreen";
 
@@ -35,13 +34,13 @@ export const MainLayout = () => {
           <Topbar />
           <div className="game" key={levelCount}> 
             <Routes>
-              <Route path="/selection" element={<SelectionGames />} />
-              <Route path="/dnd" element={<DndGames />} />
-              <Route path="/english" element={<EnglishGames />} />
-              <Route path="/lettersoup" element={<LetterSoupGames />} />
-              <Route path="/crossword" element={<CrosswordGames />} />
-              <Route path="/writing" element={<WritingGames />} />
-              <Route path="/relationship" element={<RelationshipGames />} />
+              <Route path="/selection/:difficulty" element={<SelectionGames />} />
+              <Route path="/dnd/:difficulty" element={<DndGames />} />
+              <Route path="/english/:difficulty" element={<EnglishGames />} />
+              <Route path="/lettersoup/:difficulty" element={<LetterSoupGames />} />
+              <Route path="/crossword/:difficulty" element={<CrosswordGames />} />
+              <Route path="/writing/:difficulty" element={<WritingGames />} />
+              <Route path="/relationship/:difficulty" element={<RelationshipGames />} />
             </Routes>
           </div>
         </div>

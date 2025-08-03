@@ -8,6 +8,7 @@ interface GameCardProps extends React.PropsWithChildren {
   image: string;
   className?: string;
   spotlightColor?: `rgba(${number}, ${number}, ${number}, ${number})`;
+  difficulty: "easy" | "medium" | "hard";
 }
 
 const COLORS = [

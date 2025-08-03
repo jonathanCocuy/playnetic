@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import ProgressBar from "@ramonak/react-progress-bar";
-import "./rightaside.scss";
-import CountUp from "../components/CounterFramer/CountUp";
 // Redux
 import { RootState } from "../app/store";
 import { useSelector } from "react-redux";
+// Components
+import CountUp from "../components/CounterFramer/CountUp";
+
+import "./rightaside.scss";
 
 interface RightAsideProps {
   exerciseCount: number;
@@ -20,13 +22,13 @@ export const RightAside = ({ exerciseCount, levelCount }: RightAsideProps) => {
       <div className="categories">
         <h2 className="title">Categorías</h2>
         <div className="category_list">
-          <Link className="item selection" to={"/selection"}>Selección</Link>
-          <Link className="item relationship" to={"/relationship"}>Relacionar</Link>
-          <Link className="item english" to={"/english"}>Inglés</Link>
-          <Link className="item lettersoup" to={"/lettersoup"}>Sopa de letras</Link>
-          <Link className="item dnd" to={"/dnd"}>Arrastre</Link>
-          <Link className="item crossword" to={"/crossword"}>Crucigrama</Link>
-          <Link className="item writing" to={"/writing"}>Escritura</Link>
+          <Link className="item selection" to={"/selection/all"}>Selección</Link>
+          <Link className="item relationship" to={"/relationship/all"}>Relacionar</Link>
+          <Link className="item english" to={"/english/all"}>Inglés</Link>
+          <Link className="item lettersoup" to={"/lettersoup/all"}>Sopa de letras</Link>
+          <Link className="item dnd" to={"/dnd/all"}>Arrastre</Link>
+          <Link className="item crossword" to={"/crossword/all"}>Crucigrama</Link>
+          <Link className="item writing" to={"/writing/all"}>Escritura</Link>
         </div>
       </div>
       <div className="points">
@@ -60,11 +62,12 @@ export const RightAside = ({ exerciseCount, levelCount }: RightAsideProps) => {
               <CountUp
                 from={0}
                 to={points}
+                duration={1}
                 separator=","
                 direction="up"
-                duration={1}
                 className={color}
               />
+              {/* Maximum points per game */}
               <p className="points_text"> /1500</p>
             </div>
           </div>
