@@ -1,0 +1,98 @@
+import { useState, useEffect } from "react";
+
+interface Option {
+    id: number;
+    content: string;
+    image?: { path: string };
+}
+
+interface ISubLevel {
+    data: {
+        id: number;
+        text: string;
+        title: string;
+        answer: string;
+        options: Option[];
+    };
+    onSubmit: (isCorrect: boolean) => void;
+    level: number;
+}
+
+export const Sublevel = ({ data, onSubmit, level }: ISubLevel) => {
+    // Simple translation function - replace with proper i18n when available
+    const [dataToShow, setDataToShow] = useState(data);
+    const [selected, setSelected] = useState<number | null>(null);
+    const [validateActiveSubmit, setValidateActiveSubmit] = useState(false);
+
+    useEffect(() => {
+        setDataToShow(data);
+    }, [data]);
+
+    const handleMarkOption = (id: number) => {
+        setSelected(id);
+        setValidateActiveSubmit(true);
+    };
+
+    const validateActions = () => {
+        setValidateActiveSubmit(false);
+        const selectedOption = dataToShow.options.find(
+            (option: Option) => option.id === selected
+        );
+        if (selectedOption) {
+            return selectedOption.content === dataToShow.answer;
+        }
+        return false;
+    };
+
+    const isLevelTwo = level >= 6 && level <= 10;
+    const isLevelOneOrThree = level <= 5 || level >= 11;
+
+    return (
+        <div className="sublevel_container">
+            <div className="container_image_options">
+                <div className="container">
+                    <p className="text">{dataToShow.text}</p>
+                </div>
+                <div className="container_options">
+                    {dataToShow.options.map((option) => (
+                        <div
+                            key={option.id}
+                            onClick={() => handleMarkOption(option.id)}
+                            className={
+                                option.id === selected
+                                    ? "option_word_selected"
+                                    : "option_word"
+                            }
+                        >
+                            <div>
+                                {isLevelTwo && option.image && (
+                                    <img
+                                        src={option.image.path}
+                                        alt="Imagen"
+                                        style={{
+                                            width: "100px",
+                                            borderRadius: "16px",
+                                        }}
+                                    />
+                                )}
+                                {isLevelOneOrThree && <p>{option.content}</p>}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+            <div
+                className={
+                    validateActiveSubmit ? "buttons_selecteds" : "buttons"
+                }
+            >
+                <button
+                    className="submit-button"
+                    onClick={() => onSubmit(validateActions())}
+                >
+                    {"game.add_without_models.button"}
+                </button>
+            </div>
+        </div>
+    );
+};

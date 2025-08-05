@@ -32,7 +32,7 @@ export const gameSlice = createSlice({
   
         // Set total accumulated points
         addTotalPoints: (state, action: PayloadAction<number>) => {
-            state.totalPoints += action.payload;
+            state.pointsGame += action.payload;
         },
   
         // Set number of games completed

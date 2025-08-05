@@ -1,161 +1,161 @@
 @use "../styles/vars.scss" as vars;
 
 .topbar {
-  height: 80px;
-  z-index: 1000;
-  border-radius: 16px;
-  background: #5F27CD;
-  position: fixed;
-  top: 20px;
-  left: 130px;
-  right: 415px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  .container_search_input {
-    width: 60%;
-    margin-left: 70px;
-    position: relative;
+    height: 80px;
+    z-index: 1000;
+    border-radius: 16px;
+    background: #5f27cd;
+    position: fixed;
+    top: 20px;
+    left: 130px;
+    right: 415px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 20px;
+    justify-content: space-between;
 
-    .search {
-      width: 100%;
-      border: none;
-      color: #fff;
-      font-size: 20px;
-      box-sizing: border-box;
-      background: transparent;
-    }
-
-    .search::placeholder {
-      color: #d3d3d3;
-    }
-
-    .search_border {
-      width: 0%;
-      height: 2px;
-      position: absolute;
-      left: 0;
-      bottom: 0;
-    }
-
-    .search:focus {
-      outline: none;
-    }
-
-    .search_alt {
-      font-size: 20px;
-      padding-block: 15px;
-    }
-
-    .search_border_alt {
-      height: 3px;
-      transition: width 0.4s cubic-bezier(0.42, 0, 0.58, 1);
-      // It places "background-image" so that Vite supports the gradient color variable.
-      background-image: vars.$search_input_color;
-    }
-
-    .search_alt:focus + .search_border_alt {
-      width: 100%;
-    }
-  }
-
-  .container_profile {
-    background: #401d95;
-    width: 220px;
-    height: 65px;
-    padding: 8px;
-    position: relative;
-    margin-right: 50px;
-    border-radius: 8px;
-    box-shadow: 1px 0px 19px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-
-    .text_name {
-      line-height: 1.3;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-
-      .text {
-        font-size: 14px;
-        color: #bebebe;
-      }
-
-      .name {
-        font-size: 16px;
-        font-weight: bold;
-      }
-    }
-
-    .button_profile {
-      border: none;
-      padding: 4px;
-      border-radius: 16px;
-      background: transparent;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 5px;
-
-      &:hover {
-        transition: 0.3s ease;
-        box-shadow: 1px 0px 15px 3px rgba(0, 0, 0, 0.2);
-      }
-
-      .profile_image {
-        height: 40px;
-        border-radius: 50%;
-      }
-    }
-
-    .active {
-      box-shadow: 1px 0px 15px 3px rgba(0, 0, 0, 0.2);
-    }
-
-    .menu {
-      width: 100%;
-      padding: 8px;
-      background: #5b27da;
-      position: absolute;
-      left: 0;
-      top: 75px;
-      display: flex;
-      flex-direction: column;
-
-      .container_option {
-        width: 100%;
+    .container_search_input {
+        width: 60%;
+        margin-left: 70px;
+        position: relative;
         display: flex;
-        list-style: none;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
 
-        .options_menu {
-          width: 100%;
-          color: white;
-          padding: 4px 8px;
-          border-radius: 4px;
-          text-decoration: none;
-
-          &:hover {
-            color: #bebebe;
-            background: #494949;
-          }
+        .search {
+            width: 100%;
+            border: none;
+            color: #fff;
+            font-size: 20px;
+            box-sizing: border-box;
+            background: transparent;
         }
-      }
+
+        .search::placeholder {
+            color: #d3d3d3;
+        }
+
+        .search_border {
+            width: 0%;
+            height: 2px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+
+        .search:focus {
+            outline: none;
+        }
+
+        .search_alt {
+            font-size: 20px;
+            padding-block: 15px;
+        }
+
+        .search_border_alt {
+            height: 3px;
+            transition: width 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+            // It places "background-image" so that Vite supports the gradient color variable.
+            background-image: vars.$search_input_color;
+        }
+
+        .search_alt:focus + .search_border_alt {
+            width: 100%;
+        }
     }
 
-    .open {
-      display: block;
-    }
+    .container_profile {
+        background: #401d95;
+        width: 220px;
+        height: 65px;
+        padding: 8px;
+        position: relative;
+        margin-right: 50px;
+        border-radius: 8px;
+        box-shadow: 1px 0px 19px 6px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
 
-    .close {
-      display: none;
+        .text_name {
+            line-height: 1.3;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .text {
+                font-size: 14px;
+                color: #bebebe;
+            }
+
+            .name {
+                font-size: 16px;
+                font-weight: bold;
+            }
+        }
+
+        .button_profile {
+            border: none;
+            padding: 4px;
+            border-radius: 16px;
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+
+            &:hover {
+                transition: 0.3s ease;
+                box-shadow: 1px 0px 15px 3px rgba(0, 0, 0, 0.2);
+            }
+
+            .profile_image {
+                height: 40px;
+                border-radius: 50%;
+            }
+        }
+
+        .active {
+            box-shadow: 1px 0px 15px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .menu {
+            width: 100%;
+            padding: 8px;
+            background: #5b27da;
+            position: absolute;
+            left: 0;
+            top: 75px;
+            display: flex;
+            flex-direction: column;
+
+            .container_option {
+                width: 100%;
+                display: flex;
+                list-style: none;
+
+                .options_menu {
+                    width: 100%;
+                    color: white;
+                    padding: 4px 8px;
+                    border-radius: 4px;
+                    text-decoration: none;
+
+                    &:hover {
+                        color: #bebebe;
+                        background: #494949;
+                    }
+                }
+            }
+        }
+
+        .open {
+            display: block;
+        }
+
+        .close {
+            display: none;
+        }
     }
-  }
 }

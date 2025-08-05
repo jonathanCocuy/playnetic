@@ -1,14 +1,9 @@
 import "./gamebutton.scss";
 
 interface GameButtonProps {
-  name: string;
+    name: string;
 }
 
 export const GameButton = ({ name }: GameButtonProps) => {
-
-  return (
-    <button className="button_game">
-      {name}
-    </button>
-  );
+    return <button className="button_game">{name}</button>;
 };

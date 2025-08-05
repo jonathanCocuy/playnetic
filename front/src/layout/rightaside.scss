@@ -1,194 +1,376 @@
 @use "../styles/vars" as *;
 
 .right_aside {
-  width: 20%;
-  height: 100vh;
-  background: #E6DAF8;
-  position: fixed;
-  top: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: start;
-  gap: 30px;
+    width: 20%;
+    height: 100vh;
+    background: #e6daf8;
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: start;
+    gap: 30px;
 
-  .categories {
-    width: 90%;
-    height: 300px;
-    padding: 10px 0;
-    margin-top: 30px;
-    border-radius: 16px;
-    background: #5E17EB;
-    box-shadow: 1px 0px 20px 3px rgba(0, 0, 0, 0.5);
-
-    .title {
-      font-size: 30px;
-      padding-left: 16px;
-    }
-
-    .category_list {
-      margin: 8px;
-      height: 230px;
-      padding: 16px;
-      overflow-y: auto;
-      border-radius: 8px;
-      scrollbar-width: none;
-      -ms-overflow-style: none; 
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-
-      &::-webkit-scrollbar {
-        display: none;
-      }
-
-      &:hover {
-        transition: background 0.3s ease;
-      }
-
-      &:active {
-        background: rgba(255, 255, 255, 0.1);
-        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
-      }
-
-      .item {
-        transition: all 0.2s ease;
-        
-        &:hover {
-          transform: translateX(5px);
-          box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-        }
-      }
-
-      .item {
-        border: none;
-        color: #fff;
-        padding: 8px;
-        font-size: 20px;
-        border-radius: 8px;
-        text-decoration: none;
+    .categories {
+        width: 90%;
+        height: 300px;
+        padding: 10px 0;
+        margin-top: 30px;
+        border-radius: 16px;
+        background: #5e17eb;
         box-shadow: 1px 0px 20px 3px rgba(0, 0, 0, 0.5);
-      }
 
-      .selection {
-        background: #FF6B9D;
-        color: #fff;
-
-        &:hover {
-          background: #E55A8A;
+        .title {
+            font-size: 30px;
+            padding-left: 16px;
         }
-      }
 
-      .dnd {
-        background: #7FB069;
-        color: #fff;
+        .category_list {
+            margin: 8px;
+            height: 230px;
+            padding: 16px;
+            overflow-y: auto;
+            border-radius: 8px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
 
-        &:hover {
-          background: #6A9A5A;
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            &:hover {
+                transition: background 0.3s ease;
+            }
+
+            &:active {
+                background: rgba(255, 255, 255, 0.1);
+                box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+            }
+
+            .item {
+                transition: all 0.2s ease;
+
+                &:hover {
+                    transform: translateX(5px);
+                    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+                }
+            }
+
+            .item {
+                border: none;
+                color: #fff;
+                padding: 8px;
+                font-size: 20px;
+                border-radius: 8px;
+                text-decoration: none;
+                box-shadow: 1px 0px 20px 3px rgba(0, 0, 0, 0.5);
+            }
+
+            .selection {
+                background: #ff6b9d;
+                color: #fff;
+
+                &:hover {
+                    background: #e55a8a;
+                }
+            }
+
+            .lettersoup {
+                background: #ff9a8b;
+                color: #fff;
+
+                &:hover {
+                    background: #e68a7a;
+                }
+            }
+
+            .relationship {
+                background: #6b8e23;
+                color: #fff;
+
+                &:hover {
+                    background: #5a7a1e;
+                }
+            }
+
+            .writing {
+                background: #b8a9dc;
+                color: #fff;
+
+                &:hover {
+                    background: #a395c7;
+                }
+            }
+
+            .crossword {
+                background: #e74c3c;
+                color: #fff;
+
+                &:hover {
+                    background: #c0392b;
+                }
+            }
+
+            .memory {
+                background: #8e44ad;
+                color: #fff;
+
+                &:hover {
+                    background: #7d3c98;
+                }
+            }
+
+            .dnd {
+                background: #f39c12;
+                color: #fff;
+
+                &:hover {
+                    background: #d68910;
+                }
+            }
         }
-      }
-
-      .lettersoup {
-        background: #FF9A8B;
-        color: #fff;
-
-        &:hover {
-          background: #E68A7A;
-        }
-      }
-
-      .relationship {
-        background: #6B8E23;
-        color: #fff;
-
-        &:hover {
-          background: #5A7A1E;
-        }
-      }
-
-      .writing {
-        background: #B8A9DC;
-        color: #fff;
-
-        &:hover {
-          background: #A395C7;
-        }
-      }
-
-      .crossword {
-        background: #E74C3C;
-        color: #fff;
-
-        &:hover {
-          background: #C0392B;
-        }
-      }
-
-      .memory {
-        background: #8E44AD;
-        color: #fff;
-
-        &:hover {
-          background: #7D3C98;
-        }
-      }
-
-      .english {
-        background: #F39C12;
-        color: #fff;
-
-        &:hover {
-          background: #D68910;
-        }
-      }
     }
-  }
 
-  .points {
-    width: 90%;
-    padding: 10px 0;
-    margin-top: 30px;
-    border-radius: 16px;
-    background: #5E17EB;
-    box-shadow: 1px 0px 20px 3px rgba(0, 0, 0, 0.5);
+    .points {
+        width: 90%;
+        padding: 10px 0;
+        margin-top: 30px;
+        border-radius: 16px;
+        background: #5e17eb;
+        box-shadow: 1px 0px 20px 3px rgba(0, 0, 0, 0.5);
 
-    .title {
-      font-size: 30px;
-      padding-left: 16px;
+        .title {
+            font-size: 30px;
+            padding-left: 16px;
+        }
+
+        .progress {
+            animation: fadeIn 0.5s ease-in-out;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .progress_text {
+                font-size: 20px;
+                font-weight: 600;
+            }
+
+            .progress_bar {
+                margin: 0 4px;
+                border-radius: 0px;
+                position: relative;
+                overflow: hidden;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+                background: linear-gradient(135deg, #2c3e50, #34495e);
+                transition: all 0.3s ease;
+
+                &:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+                    border-color: rgba(255, 255, 255, 0.3);
+                }
+
+                // Efecto de brillo animado
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: -100%;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(
+                        90deg,
+                        transparent,
+                        rgba(255, 255, 255, 0.4),
+                        transparent
+                    );
+                    animation: shimmer 2s infinite;
+                    z-index: 1;
+                }
+
+                // Barra de progreso personalizada
+                .ProgressBar__bg {
+                    background: linear-gradient(
+                        45deg,
+                        #667eea 0%,
+                        #764ba2 100%
+                    );
+                    border-radius: 8px;
+                    position: relative;
+                    overflow: hidden;
+                    transition: all 0.3s ease;
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background: linear-gradient(
+                            90deg,
+                            rgba(255, 255, 255, 0.1) 0%,
+                            rgba(255, 255, 255, 0.3) 50%,
+                            rgba(255, 255, 255, 0.1) 100%
+                        );
+                        animation: pulse 1.5s ease-in-out infinite;
+                    }
+                }
+
+                // Texto del progreso
+                .ProgressBar__label {
+                    font-weight: bold;
+                    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+                    color: #fff;
+                    z-index: 2;
+                    position: relative;
+                    transition: all 0.3s ease;
+                }
+
+                // Efecto de partículas cuando está completo
+                &.completed {
+                    .ProgressBar__bg::before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background: radial-gradient(
+                            circle at 50% 50%,
+                            rgba(255, 255, 255, 0.8) 0%,
+                            transparent 70%
+                        );
+                        animation: sparkle 1s ease-in-out infinite;
+                    }
+                }
+            }
+
+            // Estilos específicos para diferentes tipos de progreso
+            .progress_bar.level-progress {
+                .ProgressBar__bg {
+                    background: linear-gradient(
+                        45deg,
+                        #ffb347 0%,
+                        #ff8c42 100%
+                    );
+                }
+            }
+
+            .progress_bar.exercise-progress {
+                .ProgressBar__bg {
+                    background: linear-gradient(
+                        45deg,
+                        #69d2e7 0%,
+                        #4ecdc4 100%
+                    );
+                }
+            }
+
+            .progress_bar.points-progress {
+                .ProgressBar__bg {
+                    background: linear-gradient(
+                        45deg,
+                        #ff6b9d 0%,
+                        #ff8e53 100%
+                    );
+                }
+            }
+
+            .progress_bar.total-progress {
+                .ProgressBar__bg {
+                    background: linear-gradient(
+                        45deg,
+                        #8bc34a 0%,
+                        #4caf50 100%
+                    );
+                }
+            }
+
+            .container_points {
+                display: flex;
+                font-size: 45px;
+
+                .green {
+                    color: #8bc34a;
+                }
+
+                .red {
+                    color: #f44336;
+                }
+
+                .normal {
+                    color: #fff;
+                }
+            }
+        }
+
+        .progress_text_alt {
+            font-size: 14px;
+            padding: 0px 16px;
+            color: #fff;
+        }
     }
+}
 
-    .progress {
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-
-      .progress_text {
-        font-size: 18px;
-      }
-
-      .progress_bar {
-        margin: 0 4px;
-        border-radius: 0px;
-      }
-
-      .container_points {
-        display: flex;
-        font-size: 45px;
-
-        .green {
-          color: #8BC34A;
-        }
-
-        .red {
-          color: #F44336;
-        }
-
-        .normal {
-          color: #fff;
-        }
-      }
+@keyframes fadeIn {
+    from {
+        opacity: 0;
     }
-  }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+@keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes sparkle {
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.1);
+    }
 }
