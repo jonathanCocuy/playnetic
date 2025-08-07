@@ -1,20 +1,87 @@
 .explorers_of_the_animal_kingdom {
     width: 100%;
-    padding: 16px;
+    padding: 20px;
+    border-radius: 16px;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
+    background: #0D1B2A; // Fondo del juego - Azul oscuro profundo
+    position: relative;
+    overflow: hidden;
+
+    // Fun animated background elements
+    &::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+        background-size: 50px 50px;
+        animation: float 20s ease-in-out infinite;
+        z-index: 0;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, 
+            rgba(202, 190, 233, 0.1) 0%, 
+            rgba(128, 178, 255, 0.1) 25%, 
+            rgba(255, 251, 0, 0.1) 50%, 
+            rgba(128, 1, 255, 0.1) 75%, 
+            rgba(255, 184, 0, 0.1) 100%);
+        animation: rainbow 15s ease-in-out infinite;
+        z-index: 0;
+    }
 
     .title_level {
         margin: 0px;
         width: 100%;
         height: auto;
         text-align: center;
-        font-size: 30px;
-        font-weight: 600;
-        color: #41cead;
+        font-size: 36px;
+        font-weight: 800;
+        color: #FFFFFF; // Texto de la pregunta - Blanco
+/*         text-shadow: 
+            2px 2px 0px #CABEEA,
+            4px 4px 0px #80B2FF,
+            0 0 20px rgba(255, 255, 255, 0.3); */
+        position: relative;
+        z-index: 1;
+        animation: bounce 2s ease-in-out infinite;
+        background: linear-gradient(45deg, #FFFFFF, #CABEEA, #80B2FF, #FFFB00);
+        background-size: 400% 400%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: gradientShift 3s ease-in-out infinite, bounce 2s ease-in-out infinite;
+        
+        // Enhanced visibility with glow effect
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, #FFFFFF, #CABEEA, #80B2FF, #FFFB00);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease-in-out infinite;
+            filter: blur(2px);
+            opacity: 0.7;
+            z-index: -1;
+        }
     }
 
     .level {
@@ -24,24 +91,39 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        gap: 16px;
+        gap: 24px;
+        position: relative;
+        z-index: 1;
 
         .sublevel_container {
             width: 100%;
-            min-height: 300px;
+            min-height: 350px;
             display: flex;
             align-items: center;
             flex-direction: column;
             justify-content: space-between;
-            gap: 12px;
+            gap: 20px;
+            border-radius: 25px;
+            padding: 30px; // Tarjeta de pregunta - Azul claro suave
+            transform: perspective(1000px) rotateX(5deg);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+            &:hover {
+                transform: perspective(1000px) rotateX(0deg) scale(1.02);
+            }
 
             .container_image_options {
                 max-width: 95%;
-                max-height: 320px;
+                max-height: 350px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                gap: 50px;
+                gap: 60px;
+                padding: 20px;
+                background: linear-gradient(135deg, #E0F1FF 0%, #728FFF 100%);
+                border-radius: 20px;
+                box-shadow: 0 10px 30px rgba(224, 241, 255, 0.4);
+                animation: pulse 2s ease-in-out infinite;
             }
 
             .container {
@@ -50,87 +132,163 @@
                 align-items: center;
                 justify-content: center;
                 flex-direction: column;
-                gap: 10px;
+                gap: 15px;
 
                 .text {
                     width: 100%;
-                    padding: 10px;
-                    font-size: 14px;
+                    padding: 15px 20px;
+                    font-size: 16px;
                     text-align: left;
-                    border-radius: 16px;
-                    border: 1px solid #41cead;
+                    border-radius: 20px;
+                    border: 3px solid transparent;
+                    background: #FFFFFF; // Texto de la pregunta - Blanco
+                    color: #102030; // Texto de pregunta - Azul oscuro (casi negro)
+                    font-weight: 600;
+                    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+                    position: relative;
+                    overflow: hidden;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: -100%;
+                        width: 100%;
+                        height: 100%;
+                        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+                        animation: shimmer 2s infinite;
+                    }
                 }
             }
 
             .container_options {
                 width: 100%;
-                max-width: 250px;
+                max-width: 300px;
                 display: flex;
                 flex-direction: column;
-                gap: 12px;
-                padding: 16px;
-                background: #ffffff;
+                gap: 15px;
+                padding: 25px;
+                background: linear-gradient(135deg, #E0F1FF 0%, #728FFF 100%);
                 box-sizing: border-box;
-                border-radius: 16px;
+                border-radius: 25px;
                 backdrop-filter: blur(30px);
-                box-shadow: 0px 0px 30px rgba(227, 228, 237, 0.37);
+                box-shadow: 
+                    0 15px 35px rgba(224, 241, 255, 0.4),
+                    0 0 0 1px rgba(255,255,255,0.2);
+                position: relative;
+                overflow: hidden;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: -50%;
+                    left: -50%;
+                    width: 200%;
+                    height: 200%;
+                    background: radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px);
+                    background-size: 20px 20px;
+                    animation: float 15s ease-in-out infinite;
+                }
             }
 
             .option_word {
-                font-size: 14px;
-                line-height: 24px;
-                font-family: Outfit;
-                letter-spacing: 0em;
+                font-size: 16px;
+                line-height: 26px;
+                font-weight: 700;
+                letter-spacing: 0.5px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 cursor: pointer;
-                padding: 4px 16px;
-                background: #ffffff;
+                padding: 12px 20px;
+                background: #728FFF; // Botones de respuesta - Azul vivo pastel
                 box-sizing: border-box;
-                border-radius: 8px;
-                border: 1px solid #41cead;
+                border-radius: 15px;
+                border: 3px solid transparent;
+                background-clip: padding-box;
+                position: relative;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                box-shadow: 0 5px 15px rgba(114, 143, 255, 0.4);
+                color: #FFFFFF; // Texto blanco sobre botón azul
 
-                p {
-                    text-align: center;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    border-radius: 15px;
+                    padding: 3px;
+                    background: linear-gradient(45deg, #728FFF, #A70CFF, #FFB800, #E0F1FF);
+                    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                    -webkit-mask-composite: xor;
+                    mask-composite: exclude;
                 }
-            }
-
-            .option_word:hover {
-                color: white;
-                cursor: pointer;
-                transition: 0.3s;
-                transform: scale(1.05);
-                background-color: #41cead;
-                backdrop-filter: blur(30px);
-                box-shadow: 0px 0px 30px rgba(227, 228, 237, 0.37);
 
                 p {
                     text-align: center;
+                    color: #FFFFFF; // Texto blanco sobre botón azul
+                    margin: 0;
+                    position: relative;
+                    z-index: 1;
+                }
+
+                &:hover {
+                    transform: translateY(-5px) scale(1.05);
+                    background: #A70CFF; // Hover de botón - Celeste claro con glow + box-shadow
+                    border: 3px solid #FFB800;
+                    box-shadow: 
+                        0 15px 35px rgba(167, 12, 255, 0.6),
+                        0 0 20px rgba(167, 12, 255, 0.4);
+                    animation: wiggle 0.5s ease-in-out;
+
+                    &::before {
+                        background: linear-gradient(45deg, #A70CFF, #FFB800, #728FFF, #E0F1FF);
+                        background-size: 300% 300%;
+                        animation: gradientShift 2s ease-in-out infinite;
+                    }
                 }
             }
 
             .option_word_selected {
-                font-size: 14px;
-                line-height: 24px;
-                letter-spacing: 0em;
-                font-family: Outfit;
+                font-size: 16px;
+                line-height: 26px;
+                letter-spacing: 0.5px;
+                font-weight: 700;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                padding: 4px 16px;
-                background: #41cead;
+                padding: 12px 20px;
+                background: #A70CFF; // Hover de botón - Celeste claro con glow + box-shadow
                 box-sizing: border-box;
                 color: #ffffff;
-                transform: scale(1.03);
+                transform: scale(1.05);
                 cursor: pointer;
-                border-radius: 8px;
-                border: 1px solid #41cead;
+                border-radius: 15px;
+                border: 3px solid #FFB800;
                 backdrop-filter: blur(30px);
-                box-shadow: 0px 0px 30px rgba(227, 228, 237, 0.37);
+                box-shadow: 
+                    0 15px 35px rgba(167, 12, 255, 0.6),
+                    0 0 20px rgba(167, 12, 255, 0.4),
+                    inset 0 1px 0 rgba(255,255,255,0.2);
+                position: relative;
+                animation: selectedPulse 1s ease-in-out infinite;
+
+                &::after {
+                    content: '✨';
+                    position: absolute;
+                    top: -10px;
+                    right: -10px;
+                    font-size: 20px;
+                    animation: sparkle 1.5s ease-in-out infinite;
+                }
 
                 p {
                     text-align: center;
+                    margin: 0;
+                    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
                 }
             }
 
@@ -143,39 +301,70 @@
 
                 .submit-button {
                     margin: 0px;
-                    width: 129px;
-                    height: 40px;
-                    font-size: 20px;
+                    width: 150px;
+                    height: 50px;
+                    font-size: 18px;
                     color: #ffffff;
-                    font-weight: 500;
-                    line-height: 24px;
-                    text-align: center;
-                    font-family: Outfit;
-                    letter-spacing: 0em;
-                    border-radius: 16px;
-                    padding: 14px 32px 14px 32px;
-                    border: 1px solid #ffffff;
-                    background: linear-gradient(0deg, #75bb53, #75bb53),
-                        linear-gradient(0deg, #ffffff, #ffffff);
+                    font-weight: 700;
+
+                    border-radius: 25px;
+                    border: none;
+                    background: #FFB800; // Botón Confirmar - Naranja fuerte
                     cursor: pointer;
+                    box-shadow: 0 10px 25px rgba(255, 184, 0, 0.4);
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                    position: relative;
+                    overflow: hidden;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+                    line-height: 1;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: -100%;
+                        width: 100%;
+                        height: 100%;
+                        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+                        transition: left 0.5s;
+                    }
+
+                    &:hover {
+                        transform: translateY(-3px) scale(1.05);
+                        box-shadow: 0 15px 35px rgba(255, 184, 0, 0.5);
+                        background: linear-gradient(45deg, #FFB800, #A70CFF);
+
+                        &::before {
+                            left: 100%;
+                        }
+                    }
+
+                    &:active {
+                        transform: translateY(-1px) scale(1.02);
+                    }
                 }
 
                 .submit-button-component {
                     margin: 0px;
-                    width: 129px;
-                    height: 40px;
-                    font-size: 20px;
+                    width: 150px;
+                    height: 50px;
+                    font-size: 18px;
                     color: #ffffff;
-                    font-weight: 500;
-                    line-height: 24px;
+                    font-weight: 700;
+
+                    letter-spacing: 0.5px;
+                    border-radius: 25px;
+                    border: none;
+                    background: #FFB800; // Botón Confirmar - Naranja fuerte
+                    box-shadow: 0 10px 25px rgba(255, 184, 0, 0.4);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                     text-align: center;
-                    font-family: Outfit;
-                    letter-spacing: 0em;
-                    border-radius: 16px;
-                    padding: 14px 32px 14px 32px;
-                    border: 1px solid #ffffff;
-                    background: linear-gradient(0deg, #75bb53, #75bb53),
-                        linear-gradient(0deg, #ffffff, #ffffff);
+                    line-height: 1;
                 }
             }
 
@@ -188,40 +377,230 @@
 
                 .submit-button {
                     margin: 0px;
-                    width: 129px;
-                    height: 40px;
-                    font-size: 20px;
-                    color: #75bb53;
-                    font-weight: 500;
-                    line-height: 24px;
-                    text-align: center;
-                    font-family: Outfit;
-                    letter-spacing: 0em;
-                    padding: 14px 32px 14px 32px;
-                    border-radius: 16px;
-                    border: 1px solid #75bb53;
-                    background: linear-gradient(0deg, #ffffff, #ffffff),
-                        linear-gradient(0deg, #75bb53, #75bb53);
+                    width: 150px;
+                    height: 50px;
+                    font-size: 18px;
+                    color: #ffffff;
+                    font-weight: 700;
+
+                    letter-spacing: 0.5px;
+                    border-radius: 25px;
+                    border: 3px solid #FFB800;
+                    background: #FFB800; // Botón Confirmar - Naranja fuerte
                     cursor: pointer;
+                    box-shadow: 0 10px 25px rgba(255, 184, 0, 0.4);
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                    position: relative;
+                    overflow: hidden;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+                    line-height: 1;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: -100%;
+                        width: 100%;
+                        height: 100%;
+                        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+                        transition: left 0.5s;
+                    }
+
+                    &:hover {
+                        transform: translateY(-3px) scale(1.05);
+                        box-shadow: 0 15px 35px rgba(255, 184, 0, 0.5);
+                        background: linear-gradient(45deg, #A70CFF, #FFB800);
+
+                        &::before {
+                            left: 100%;
+                        }
+                    }
+
+                    &:active {
+                        transform: translateY(-1px) scale(1.02);
+                    }
                 }
 
                 .submit-button-component {
                     margin: 0px;
-                    width: 129px;
-                    height: 40px;
-                    font-size: 20px;
-                    color: #75bb53;
-                    font-weight: 500;
-                    line-height: 24px;
+                    width: 150px;
+                    height: 50px;
+                    font-size: 18px;
+                    color: #ffffff;
+                    font-weight: 700;
+
+                    letter-spacing: 0.5px;
+                    border-radius: 25px;
+                    border: 3px solid #FFB800;
+                    background: #FFB800; // Botón Confirmar - Naranja fuerte
+                    box-shadow: 0 10px 25px rgba(255, 184, 0, 0.4);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                     text-align: center;
-                    font-family: Outfit;
-                    letter-spacing: 0em;
-                    padding: 14px 32px 14px 32px;
-                    border-radius: 16px;
-                    border: 1px solid #75bb53;
-                    background: linear-gradient(0deg, #ffffff, #ffffff),
-                        linear-gradient(0deg, #75bb53, #75bb53);
+                    line-height: 1;
                 }
+            }
+        }
+    }
+}
+
+// Fun animations
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 10px 30px rgba(224, 241, 255, 0.4);
+    }
+    50% {
+        transform: scale(1.02);
+        box-shadow: 0 15px 40px rgba(224, 241, 255, 0.6);
+    }
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    33% {
+        transform: translateY(-20px) rotate(1deg);
+    }
+    66% {
+        transform: translateY(10px) rotate(-1deg);
+    }
+}
+
+@keyframes rainbow {
+    0%, 100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes wiggle {
+    0%, 100% {
+        transform: translateY(-5px) scale(1.05) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-5px) scale(1.05) rotate(2deg);
+    }
+    75% {
+        transform: translateY(-5px) scale(1.05) rotate(-2deg);
+    }
+}
+
+@keyframes selectedPulse {
+    0%, 100% {
+        transform: scale(1.05);
+        box-shadow: 0 15px 35px rgba(167, 12, 255, 0.6);
+    }
+    50% {
+        transform: scale(1.08);
+        box-shadow: 0 20px 45px rgba(167, 12, 255, 0.8);
+    }
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2) rotate(180deg);
+        opacity: 0.8;
+    }
+}
+
+// Responsive design for different screen sizes
+@media (max-width: 768px) {
+    .explorers_of_the_animal_kingdom {
+        padding: 15px;
+        
+        .title_level {
+            font-size: 28px;
+        }
+        
+        .level .sublevel_container {
+            padding: 20px;
+            
+            .container_image_options {
+                gap: 30px;
+                padding: 15px;
+            }
+            
+            .option_word, .option_word_selected {
+                font-size: 14px;
+                padding: 10px 16px;
+            }
+            
+            .buttons .submit-button, .buttons_selecteds .submit-button {
+                width: 120px;
+                height: 45px;
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .explorers_of_the_animal_kingdom {
+        padding: 10px;
+        
+        .title_level {
+            font-size: 24px;
+        }
+        
+        .level .sublevel_container {
+            padding: 15px;
+            
+            .container_image_options {
+                gap: 20px;
+                padding: 10px;
+            }
+            
+            .option_word, .option_word_selected {
+                font-size: 12px;
+                padding: 8px 12px;
+            }
+            
+            .buttons .submit-button, .buttons_selecteds .submit-button {
+                width: 100px;
+                height: 40px;
+                font-size: 14px;
             }
         }
     }

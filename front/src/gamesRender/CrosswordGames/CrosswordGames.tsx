@@ -2,14 +2,14 @@ import GameCard from "../../components/GameCard/GameCard";
 import { CategoriesLevel } from "../../components/CategoriesLevel/CategoriesLevel";
 import "./crosswordGames.scss";
 import { useParams } from "react-router-dom";
-import { game_card } from "../../data/game_card";
+import { gameCardData } from "../Data";
 
 export const CrosswordGames = () => {
     const { difficulty } = useParams<{ difficulty?: string }>();
 
     const filteredGames = !difficulty || difficulty === "all" 
-        ? game_card.crossword 
-        : game_card.crossword.filter(game => game.difficulty === difficulty);
+        ? gameCardData.crossword 
+        : gameCardData.crossword.filter(game => game.difficulty === difficulty);
 
     return (
         <div className="crossword_games">                      

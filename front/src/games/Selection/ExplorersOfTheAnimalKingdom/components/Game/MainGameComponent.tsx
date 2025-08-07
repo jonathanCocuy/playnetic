@@ -4,6 +4,7 @@ import { Level2 } from "./Levels";
 import { Level3 } from "./Levels";
 import { informationData } from "../Data/index";
 import "../../styles.scss";
+import Swal from "sweetalert2";
 
 const CreatingAnAnecdoteJCComponent = () => {
     /* Nivel actual */
@@ -25,7 +26,22 @@ const CreatingAnAnecdoteJCComponent = () => {
     /* Funcion que valida si se cumple la condicion para pasar al siguiente nivel y envia la respuesta */
     const onSubmit = (isCorrect: boolean) => {
         if (isCorrect) {
+            Swal.fire({
+                title: '¡Correcto!',
+                text: 'Has completado el nivel',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 1500
+            });
             setLevel(level + 1);
+        } else {
+            Swal.fire({
+                title: '¡Incorrecto!',
+                text: 'Intenta de nuevo',
+                icon: 'error',
+                showConfirmButton: false,
+                timer: 1500
+            });
         }
     };
 

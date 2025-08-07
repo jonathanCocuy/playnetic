@@ -2,14 +2,14 @@ import GameCard from "../../components/GameCard/GameCard";
 import { CategoriesLevel } from "../../components/CategoriesLevel/CategoriesLevel";
 import "./letterSoupGames.scss";
 import { useParams } from "react-router-dom";
-import { game_card } from "../../data/game_card";
+import { gameCardData } from "../Data";
 
 export const LetterSoupGames = () => {
     const { difficulty } = useParams<{ difficulty?: string }>();
 
     const filteredGames = !difficulty || difficulty === "all" 
-        ? game_card.lettersoup 
-        : game_card.lettersoup.filter(game => game.difficulty === difficulty);
+        ? gameCardData.lettersoup 
+        : gameCardData.lettersoup.filter(game => game.difficulty === difficulty);
 
     return (
         <div className="letter_soup_games">                      

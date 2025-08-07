@@ -13,6 +13,9 @@ interface ISubLevel {
         title: string;
         answer: string;
         options: Option[];
+        imageOne?: string;
+        imageTwo?: string;
+        imageThree?: string;
     };
     onSubmit: (isCorrect: boolean) => void;
     level: number;
@@ -90,7 +93,7 @@ export const Sublevel = ({ data, onSubmit, level }: ISubLevel) => {
                     className="submit-button"
                     onClick={() => onSubmit(validateActions())}
                 >
-                    {"game.add_without_models.button"}
+                    {"CONFIRMAR"}
                 </button>
             </div>
         </div>

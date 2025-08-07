@@ -1,3 +1,7 @@
+import Turtle from "../Images/Turtle.png"
+import Dog from "../Images/Dog.png"
+import Chicken from "../Images/Chicken.png"
+
 export const informationData = (data: string) => {
     const levels = {
         level1: [
@@ -5,6 +9,9 @@ export const informationData = (data: string) => {
                 id: 1,
                 title: "¿Cuál de estos animales es un mamífero?",
                 text: "Selecciona el animal que pertenece a la clase de los mamíferos.",
+                imageOne: Dog,
+                imageTwo: Chicken,
+                imageThree: Turtle,
                 answer: "Perro",
                 options: [
                     { id: 1, content: "Perro" },

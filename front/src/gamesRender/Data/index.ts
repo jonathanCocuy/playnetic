@@ -1,4 +1,4 @@
-export const game_card = {
+export const gameCardData = {
     selection: [
         {
             title: "Organiza el mundo",

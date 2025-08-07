@@ -2,14 +2,14 @@ import GameCard from "../../components/GameCard/GameCard";
 import { CategoriesLevel } from "../../components/CategoriesLevel/CategoriesLevel";
 import "./selectionGames.scss";
 import { useParams } from "react-router-dom";
-import { game_card } from "../../data/game_card";
+import { gameCardData } from "../Data";
 
 export const SelectionGames = () => {
     const { difficulty } = useParams<{ difficulty?: string }>();
 
     const filteredGames = !difficulty || difficulty === "all" 
-        ? game_card.selection 
-        : game_card.selection.filter(game => game.difficulty === difficulty);
+        ? gameCardData.selection 
+        : gameCardData.selection.filter(game => game.difficulty === difficulty);
 
     return (
         <div className="selection_games">                      
