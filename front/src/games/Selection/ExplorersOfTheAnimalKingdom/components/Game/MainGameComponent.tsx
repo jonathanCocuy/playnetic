@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import { Level1 } from "./Levels";
 import { Level2 } from "./Levels";
 import { Level3 } from "./Levels";
@@ -19,7 +19,7 @@ const CreatingAnAnecdoteJCComponent = () => {
     const [dataLevel2, setDataLevel2] = useState(dataExercise2);
     const [dataLevel3, setDataLevel3] = useState(dataExercise3);
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (level >= 16) setLevel(1);
     }, [level]);
 
