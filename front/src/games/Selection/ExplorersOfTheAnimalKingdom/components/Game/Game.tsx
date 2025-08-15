@@ -29,6 +29,9 @@ export const Sublevel = ({ data, onSubmit, level }: ISubLevel) => {
 
     useEffect(() => {
         setDataToShow(data);
+        // Reset selected state when data changes (new level)
+        setSelected(null);
+        setValidateActiveSubmit(false);
     }, [data]);
 
     const handleMarkOption = (id: number) => {
@@ -42,7 +45,12 @@ export const Sublevel = ({ data, onSubmit, level }: ISubLevel) => {
             (option: Option) => option.id === selected
         );
         if (selectedOption) {
-            return selectedOption.content === dataToShow.answer;
+            const isCorrect = selectedOption.content === dataToShow.answer;
+            // If answer is incorrect, clear the selection
+            if (!isCorrect) {
+                setSelected(null);
+            }
+            return isCorrect;
         }
         return false;
     };

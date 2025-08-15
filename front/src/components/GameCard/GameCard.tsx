@@ -9,6 +9,8 @@ interface GameCardProps extends React.PropsWithChildren {
     className?: string;
     spotlightColor?: `rgba(${number}, ${number}, ${number}, ${number})`;
     difficulty: "easy" | "medium" | "hard";
+    gameId?: string;
+    onGameSelect?: (gameId: string) => void;
 }
 
 const COLORS = [
@@ -42,6 +44,8 @@ const GameCard: React.FC<GameCardProps> = ({
     spotlightColor,
     title,
     image,
+    gameId,
+    onGameSelect,
 }) => {
     const autoColor = COLORS[
         getRandomColor()
@@ -75,7 +79,14 @@ const GameCard: React.FC<GameCardProps> = ({
                 <h1 className="title">{title}</h1>
             </div>
             <div className="container_button">
-                <GameButton name="J U G A R" />
+                <GameButton 
+                    name="J U G A R" 
+                    onClick={() => {
+                        if (gameId && onGameSelect) {
+                            onGameSelect(gameId);
+                        }
+                    }}
+                />
             </div>
         </div>
     );

@@ -1,8 +1,15 @@
 export const gameCardData = {
     selection: [
         {
-            title: "Organiza el mundo",
+            title: "Exploradores del Reino",
             image: "https://picsum.photos/200/200",
+            difficulty: "easy",
+            wordsKey: [],
+            gameId: "explorers-animal-kingdom"
+        },
+        {
+            title: "Organiza el mundo",
+            image: "https://picsum.photos/600/200",
             difficulty: "easy",
             wordsKey: []
         },
@@ -10,12 +17,6 @@ export const gameCardData = {
             title: "Toque inteligente",
             image: "https://picsum.photos/300/200",
             difficulty: "medium",
-            wordsKey: []
-        },
-        {
-            title: "Selecciona la pista",
-            image: "https://picsum.photos/400/200",
-            difficulty: "hard",
             wordsKey: []
         }
     ],

@@ -13,13 +13,13 @@ import { LetterSoupGames } from "../gamesRender/LetterSoupGames/LetterSoupGames"
 import { WritingGames } from "../gamesRender/WritingGames/WritingGames";
 import { RelationshipGames } from "../gamesRender/RelationshipGames/RelationshipGames";
 import "./mainlayout.scss";
-import CreatingAnAnecdoteJCComponent from "../games/Selection/ExplorersOfTheAnimalKingdom/components/Game/MainGameComponent";
+/* import CreatingAnAnecdoteJCComponent from "../games/Selection/ExplorersOfTheAnimalKingdom/components/Game/MainGameComponent"; */
 
 // import LoginScreen from "../screens/loginScreen/LoginScreen";
 
 export const MainLayout = () => {
-    const [exerciseCount] = useState(1);
-    const [levelCount] = useState(1);
+    const [exerciseCount, setExerciseCount] = useState(1);
+    const [levelCount, setLevelCount] = useState(1);
 
     return (
         <BrowserRouter
@@ -36,11 +36,11 @@ export const MainLayout = () => {
                         <Routes>
                             <Route
                                 path="/home"
-                                element={<CreatingAnAnecdoteJCComponent />}
+                                element={<h1>Home</h1>}
                             />
                             <Route
                                 path="/selection/:difficulty"
-                                element={<SelectionGames />}
+                                element={<SelectionGames exerciseCount={exerciseCount} levelCount={levelCount} setExerciseCount={setExerciseCount} setLevelCount={setLevelCount} />}
                             />
                             <Route
                                 path="/dnd/:difficulty"

@@ -61,8 +61,8 @@ export const RightAside = ({ exerciseCount, levelCount }: RightAsideProps) => {
                                 bgColor="#FFB347"
                                 height="30px"
                                 completed={levelCount}
-                                maxCompleted={2}
-                                customLabel={`${levelCount}/2`}
+                                maxCompleted={3}
+                                customLabel={`${levelCount}/3`}
                                 borderRadius="8px"
                             />
                             <p className="progress_text">Ejercicio actual</p>
@@ -71,8 +71,8 @@ export const RightAside = ({ exerciseCount, levelCount }: RightAsideProps) => {
                                 bgColor="#69D2E7"
                                 height="30px"
                                 completed={exerciseCount}
-                                maxCompleted={2}
-                                customLabel={`${exerciseCount}/2`}
+                                maxCompleted={5}
+                                customLabel={`${exerciseCount}/5`}
                                 borderRadius="8px"
                             />
                         </div>
