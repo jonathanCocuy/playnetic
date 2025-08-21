@@ -44,7 +44,7 @@
                 }
     
                 &:active {
-                    transform: translateY(0);
+                    transform: translateY(-0.50em);
                 }
             }
 
@@ -66,6 +66,12 @@
             .hard {
                 background-color: #F44336;
                 color: #fff;
+            }
+        }
+
+        .active {
+            .button_top {
+                transform: translateY(-0.50em);
             }
         }
     }

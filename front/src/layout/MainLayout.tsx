@@ -18,7 +18,7 @@ import "./mainlayout.scss";
 // import LoginScreen from "../screens/loginScreen/LoginScreen";
 
 export const MainLayout = () => {
-    const [exerciseCount, setExerciseCount] = useState(1);
+    // Global state for all games
     const [levelCount, setLevelCount] = useState(1);
 
     return (
@@ -40,11 +40,11 @@ export const MainLayout = () => {
                             />
                             <Route
                                 path="/selection/:difficulty"
-                                element={<SelectionGames exerciseCount={exerciseCount} levelCount={levelCount} setExerciseCount={setExerciseCount} setLevelCount={setLevelCount} />}
+                                element={<SelectionGames levelCount={levelCount} setLevelCount={setLevelCount} />}
                             />
                             <Route
                                 path="/dnd/:difficulty"
-                                element={<DndGames />}
+                                element={<DndGames /* levelCount={levelCount} setLevelCount={setLevelCount}  *//>}
                             />
                             <Route
                                 path="/english/:difficulty"
@@ -69,10 +69,7 @@ export const MainLayout = () => {
                         </Routes>
                     </div>
                 </div>
-                <RightAside
-                    exerciseCount={exerciseCount}
-                    levelCount={levelCount}
-                />
+                <RightAside levelCount={levelCount} />
             </div>
 
             {/* <LoginScreen/> */}

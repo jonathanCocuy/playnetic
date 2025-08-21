@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./categoriesLevel.scss";
 
 interface CategoriesLevelProps {
@@ -6,30 +6,38 @@ interface CategoriesLevelProps {
 }
 
 export const CategoriesLevel = ({ game }: CategoriesLevelProps) => {
+    const { difficulty } = useParams<{ difficulty?: string }>();
+    
+    const isActive = (buttonDifficulty: string) => {
+        if (buttonDifficulty === "all") {
+            return !difficulty || difficulty === "all";
+        }
+        return difficulty === buttonDifficulty;
+    };
 
     return (
         <div className="categories_level">
             <div className="categories_list">
                 <Link 
-                    className="item" 
+                    className={isActive("all") ? "active item" : "item"}
                     to={`/${game}/all`}
                 >
                     <span className="button_top all">Todos</span>
                 </Link>
                 <Link 
-                    className="item" 
+                    className={isActive("easy") ? "active item" : "item"}
                     to={`/${game}/easy`}
                 >
                     <span className="button_top easy">Fácil</span>
                 </Link>
                 <Link 
-                    className="item" 
+                    className={isActive("medium") ? "active item" : "item"}
                     to={`/${game}/medium`}
                 >
                     <span className="button_top medium">Medio</span>
                 </Link>
                 <Link 
-                    className="item" 
+                    className={isActive("hard") ? "active item" : "item"}
                     to={`/${game}/hard`}
                 >
                     <span className="button_top hard">Difícil</span>

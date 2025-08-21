@@ -59,6 +59,26 @@
                     transform: translateX(5px);
                     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
                 }
+
+                &.active {
+                    transform: translateX(10px);
+                    box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.5);
+                    border: 2px solid #fff;
+                    position: relative;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        left: -8px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        width: 0;
+                        height: 0;
+                        border-top: 8px solid transparent;
+                        border-bottom: 8px solid transparent;
+                        border-right: 8px solid #fff;
+                    }
+                }
             }
 
             .item {

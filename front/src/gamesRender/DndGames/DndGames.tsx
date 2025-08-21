@@ -4,7 +4,12 @@ import "./dndGames.scss";
 import { useParams } from "react-router-dom";
 import { gameCardData } from "../Data";
 
-export const DndGames = () => {
+/* interface DndGamesProps {
+    levelCount: number;
+    setLevelCount: (level: number) => void;
+} */
+
+export const DndGames = (/* { levelCount, setLevelCount }: DndGamesProps */) => {
     const { difficulty } = useParams<{ difficulty?: string }>();
 
     const filteredGames = !difficulty || difficulty === "all" 

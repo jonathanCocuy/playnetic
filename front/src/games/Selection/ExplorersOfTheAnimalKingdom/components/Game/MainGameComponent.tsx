@@ -10,16 +10,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState, AppDispatch } from "../../../../../app/store";
 import { setPointsGame } from "../../../../../features/gamePuntuation/gameSlice";
 
-interface CreatingAnAnecdoteJCComponentProps {
-    exerciseCount: number;
+interface ExplorersOfTheAnimalKingdomComponentProps {
     levelCount: number;
-    setExerciseCount: (count: number) => void;
-    setLevelCount: (count: number) => void;
+    setLevelCount: (level: number) => void;
 }
 
-const CreatingAnAnecdoteJCComponent = ({ exerciseCount, levelCount, setExerciseCount, setLevelCount }: CreatingAnAnecdoteJCComponentProps) => {
+const ExplorersOfTheAnimalKingdomComponent = ({ levelCount, setLevelCount }: ExplorersOfTheAnimalKingdomComponentProps) => {
     const navigate = useNavigate();
-    /* Nivel actual */
     const dispatch = useDispatch<AppDispatch>();
     const points = useSelector((state: RootState) => state.game.pointsGame);
 
@@ -33,49 +30,64 @@ const CreatingAnAnecdoteJCComponent = ({ exerciseCount, levelCount, setExerciseC
     const [dataLevel3, setDataLevel3] = useState(dataExercise3);
 
     useEffect(() => {
-        // Reset when reaching the end of all levels (3 levels * 5 exercises = 15 total)
-        if (levelCount > 3) {
-            setLevelCount(1);
-            setExerciseCount(1);
-        }
-    }, [levelCount, setLevelCount, setExerciseCount]);
+        if (levelCount >= 16) setLevelCount(1);
+    }, [levelCount, setLevelCount]);
 
     /* Funcion que valida si se cumple la condicion para pasar al siguiente nivel y envia la respuesta */
     const onSubmit = (isCorrect: boolean) => {
         if (isCorrect) {
             Swal.fire({
-                title: '¡Correcto!',
-                text: 'Has completado el ejercicio',
+                title: '¡Correcto! 🎉',
+                text: '¡Excelente trabajo! Has completado el nivel',
                 icon: 'success',
                 showConfirmButton: false,
-                timer: 1500
+                timer: 2000,
+                timerProgressBar: true,
+                customClass: {
+                    popup: 'swal-custom-popup'
+                },
+                showClass: {
+                    popup: 'animate__animated animate__zoomIn animate__faster'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__zoomOut animate__faster'
+                },
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
             });
             dispatch(setPointsGame({ points: points + 100, color: "green" }));
-            
-            // Increment exercise count
-            const newExerciseCount = exerciseCount + 1;
-            setExerciseCount(newExerciseCount);
-            
-            // If we completed 5 exercises, move to next level
-            if (newExerciseCount > 5) {
-                setLevelCount(levelCount + 1);
-                setExerciseCount(1); // Reset exercise count for new level
-            }
+            setLevelCount(levelCount + 1);
         } else {
             Swal.fire({
-                title: '¡Incorrecto!',
-                text: 'Intenta de nuevo',
+                title: '¡Incorrecto! 😅',
+                text: 'No te rindas, ¡intenta de nuevo!',
                 icon: 'error',
                 showConfirmButton: false,
-                timer: 1500
+                timer: 2000,
+                timerProgressBar: true,
+                customClass: {
+                    popup: 'swal-custom-popup'
+                },
+                showClass: {
+                    popup: 'animate__animated animate__shakeX animate__faster'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOut animate__faster'
+                },
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
             });
             dispatch(setPointsGame({ points: points - 50, color: "red" }));
         }
     };
 
-    const isFirstLevel = levelCount === 1;
-    const isSecondLevel = levelCount === 2;
-    const isThirdLevel = levelCount === 3;
+    const isFirstLevel = levelCount <= 5;
+    const isSecondLevel = levelCount >= 6 && levelCount <= 10;
+    const isThirdLevel = levelCount >= 11 && levelCount <= 15;
 
     return (
         <div className="explorers_of_the_animal_kingdom">
@@ -108,9 +120,9 @@ const CreatingAnAnecdoteJCComponent = ({ exerciseCount, levelCount, setExerciseC
             {isFirstLevel ? (
                 <div className="level">
                     <Level1
-                        level={exerciseCount}
+                        level={levelCount}
                         onSubmit={onSubmit}
-                        setLevel={setExerciseCount}
+                        setLevel={setLevelCount}
                         dataLevel={dataLevel1}
                         setDataLevel={setDataLevel1}
                     />
@@ -118,9 +130,9 @@ const CreatingAnAnecdoteJCComponent = ({ exerciseCount, levelCount, setExerciseC
             ) : isSecondLevel ? (
                 <div className="level">
                     <Level2
-                        level={exerciseCount}
+                        level={levelCount}
                         onSubmit={onSubmit}
-                        setLevel={setExerciseCount}
+                        setLevel={setLevelCount}
                         dataLevel={dataLevel2}
                         setDataLevel={setDataLevel2}
                     />
@@ -128,9 +140,9 @@ const CreatingAnAnecdoteJCComponent = ({ exerciseCount, levelCount, setExerciseC
             ) : isThirdLevel ? (
                 <div className="level">
                     <Level3
-                        level={exerciseCount}
+                        level={levelCount}
                         onSubmit={onSubmit}
-                        setLevel={setExerciseCount}
+                        setLevel={setLevelCount}
                         dataLevel={dataLevel3}
                         setDataLevel={setDataLevel3}
                     />
@@ -140,4 +152,4 @@ const CreatingAnAnecdoteJCComponent = ({ exerciseCount, levelCount, setExerciseC
     );
 };
 
-export default CreatingAnAnecdoteJCComponent;
+export default ExplorersOfTheAnimalKingdomComponent;

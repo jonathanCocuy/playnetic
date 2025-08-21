@@ -21,8 +21,7 @@ interface ISubLevel {
     level: number;
 }
 
-export const Sublevel = ({ data, onSubmit, level }: ISubLevel) => {
-    // Simple translation function - replace with proper i18n when available
+export const Sublevel = ({ data, onSubmit }: ISubLevel) => {
     const [dataToShow, setDataToShow] = useState(data);
     const [selected, setSelected] = useState<number | null>(null);
     const [validateActiveSubmit, setValidateActiveSubmit] = useState(false);
@@ -55,12 +54,9 @@ export const Sublevel = ({ data, onSubmit, level }: ISubLevel) => {
         return false;
     };
 
-    const isLevelTwo = level >= 6 && level <= 10;
-    const isLevelOneOrThree = level <= 5 || level >= 11;
-
     return (
         <div className="sublevel_container">
-            <div className="container_image_options">
+            <div className="container_text_options">
                 <div className="container">
                     <p className="text">{dataToShow.text}</p>
                 </div>
@@ -69,38 +65,17 @@ export const Sublevel = ({ data, onSubmit, level }: ISubLevel) => {
                         <div
                             key={option.id}
                             onClick={() => handleMarkOption(option.id)}
-                            className={
-                                option.id === selected
-                                    ? "option_word_selected"
-                                    : "option_word"
-                            }
+                            className={option.id === selected ? "option_word_selected" : "option_word"}
                         >
                             <div>
-                                {isLevelTwo && option.image && (
-                                    <img
-                                        src={option.image.path}
-                                        alt="Imagen"
-                                        style={{
-                                            width: "100px",
-                                            borderRadius: "16px",
-                                        }}
-                                    />
-                                )}
-                                {isLevelOneOrThree && <p>{option.content}</p>}
+                                <p>{option.content}</p>
                             </div>
                         </div>
                     ))}
                 </div>
             </div>
-            <div
-                className={
-                    validateActiveSubmit ? "buttons_selecteds" : "buttons"
-                }
-            >
-                <button
-                    className="submit-button"
-                    onClick={() => onSubmit(validateActions())}
-                >
+            <div className={validateActiveSubmit ? "buttons_selecteds" : "buttons"}>
+                <button className="submit-button" onClick={() => onSubmit(validateActions())}>
                     {"CONFIRMAR"}
                 </button>
             </div>

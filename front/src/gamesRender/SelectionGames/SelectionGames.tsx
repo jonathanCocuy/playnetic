@@ -4,21 +4,19 @@ import { CategoriesLevel } from "../../components/CategoriesLevel/CategoriesLeve
 import "./selectionGames.scss";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 import { gameCardData } from "../Data";
-import CreatingAnAnecdoteJCComponent from "../../games/Selection/ExplorersOfTheAnimalKingdom/components/Game/MainGameComponent";
+import ExplorersOfTheAnimalKingdomComponent from "../../games/Selection/ExplorersOfTheAnimalKingdom/components/Game/MainGameComponent";
 
 interface SelectionGamesProps {
-    exerciseCount: number;
     levelCount: number;
-    setExerciseCount: (count: number) => void;
-    setLevelCount: (count: number) => void;
+    setLevelCount: (level: number) => void;
 }
 
-export const SelectionGames = ({ exerciseCount, levelCount, setExerciseCount, setLevelCount }: SelectionGamesProps) => {
+export const SelectionGames = ({ levelCount, setLevelCount }: SelectionGamesProps) => {
     const { difficulty } = useParams<{ difficulty?: string }>();
     const location = useLocation();
     const navigate = useNavigate();
     const [selectedGame, setSelectedGame] = useState<string | null>(null);
-
+    
     // Handle URL changes and game selection
     useEffect(() => {
         const urlParams = new URLSearchParams(location.search);
@@ -29,15 +27,10 @@ export const SelectionGames = ({ exerciseCount, levelCount, setExerciseCount, se
             setSelectedGame(gameFromUrl);
         } else if (urlParams.get('reset') === 'true') {
             setSelectedGame(null);
-        } else if (location.pathname.includes('/selection/')) {
+        } else if (location.pathname.includes('/selection/') && !gameFromUrl) {
             setSelectedGame(null);
         }
     }, [location.pathname, location.search]);
-
-    // Also reset when the component mounts
-    useEffect(() => {
-        setSelectedGame(null);
-    }, []);
 
     const filteredGames = !difficulty || difficulty === "all" 
         ? gameCardData.selection 
@@ -45,33 +38,38 @@ export const SelectionGames = ({ exerciseCount, levelCount, setExerciseCount, se
 
     const handleGameSelect = (gameId: string) => {
         setSelectedGame(gameId);
-        // Update URL with game parameter
-        navigate(`/selection/all?game=${gameId}`);
+        navigate(`/selection/${difficulty}?game=${gameId}`);
     };
+
+    const renderGameCard = () => {
+        return (
+            <div className="selection_games">                      
+                <div className="selection_header"> 
+                    <h1 className="selection_title">Juegos de Selección</h1>
+                </div>
+                <CategoriesLevel game="selection" />
+                <div className="selection_list">
+                    {filteredGames.map((game, index) => (
+                        <GameCard
+                            key={index}
+                            title={game.title}
+                            image={game.image}
+                            difficulty={game.difficulty as "easy" | "medium" | "hard"}
+                            gameId={game.gameId}
+                            onGameSelect={handleGameSelect}
+                        />
+                    ))}
+                </div>
+            </div>
+        )
+    }
 
     return (
         <>
             {selectedGame === "explorers-animal-kingdom" ? (
-                <CreatingAnAnecdoteJCComponent exerciseCount={exerciseCount} levelCount={levelCount} setExerciseCount={setExerciseCount} setLevelCount={setLevelCount} />
+                <ExplorersOfTheAnimalKingdomComponent levelCount={levelCount} setLevelCount={setLevelCount} />
             ) : (
-                <div className="selection_games">                      
-                    <div className="selection_header">
-                        <h1 className="selection_title">Juegos de Selección</h1>
-                    </div>
-                    <CategoriesLevel game="selection" />
-                    <div className="selection_list">
-                        {filteredGames.map((game, index) => (
-                            <GameCard
-                                key={index}
-                                title={game.title}
-                                image={game.image}
-                                difficulty={game.difficulty as "easy" | "medium" | "hard"}
-                                gameId={game.gameId}
-                                onGameSelect={handleGameSelect}
-                            />
-                        ))}
-                    </div>
-                </div>
+                renderGameCard()
             )}
         </>
     )

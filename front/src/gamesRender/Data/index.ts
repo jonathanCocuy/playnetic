@@ -1,8 +1,10 @@
+import explorersOfTheAnimalKingdom from "../Images/explorers-animal-kingdom.png"
+
 export const gameCardData = {
     selection: [
         {
             title: "Exploradores del Reino",
-            image: "https://picsum.photos/200/200",
+            image: explorersOfTheAnimalKingdom,
             difficulty: "easy",
             wordsKey: [],
             gameId: "explorers-animal-kingdom"

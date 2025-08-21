@@ -9,48 +9,61 @@ import CountUp from "../components/CounterFramer/CountUp";
 import "./rightaside.scss";
 
 interface RightAsideProps {
-    exerciseCount: number;
     levelCount: number;
 }
 
-export const RightAside = ({ exerciseCount, levelCount }: RightAsideProps) => {
-    const points = useSelector((state: RootState) => state.game.pointsGame);
-    const color = useSelector((state: RootState) => state.game.color);
-    const totalPoints = useSelector(
-        (state: RootState) => state.game.totalPoints
-    );
+export const RightAside = ({ levelCount }: RightAsideProps) => {
     const location = useLocation();
-    const isHomePage = location.pathname === "/home";
+    const isGamePage = location.search.includes("game");
+    // Redux
+    const color = useSelector((state: RootState) => state.game.color);
+    const points = useSelector((state: RootState) => state.game.pointsGame);
+    const totalPoints = useSelector((state: RootState) => state.game.totalPoints);
 
     return (
         <div className="right_aside">
             <div className="categories">
                 <h2 className="title">Categorías</h2>
                 <div className="category_list">
-                    <Link className="item selection" to={"/selection/all"}>
+                    <Link 
+                        className={`item selection ${location.pathname.startsWith('/selection') ? 'active' : ''}`} 
+                        to={"/selection/all"}
+                    >
                         Selección
                     </Link>
-                    <Link
-                        className="item relationship"
+                    <Link 
+                        className={`item relationship ${location.pathname.startsWith('/relationship') ? 'active' : ''}`} 
                         to={"/relationship/all"}
                     >
                         Relacionar
                     </Link>
-                    <Link className="item lettersoup" to={"/lettersoup/all"}>
+                    <Link 
+                        className={`item lettersoup ${location.pathname.startsWith('/lettersoup') ? 'active' : ''}`} 
+                        to={"/lettersoup/all"}
+                    >
                         Sopa de letras
                     </Link>
-                    <Link className="item dnd" to={"/dnd/all"}>
+                    <Link 
+                        className={`item dnd ${location.pathname.startsWith('/dnd') ? 'active' : ''}`} 
+                        to={"/dnd/all"}
+                    >
                         Arrastre
                     </Link>
-                    <Link className="item crossword" to={"/crossword/all"}>
+                    <Link 
+                        className={`item crossword ${location.pathname.startsWith('/crossword') ? 'active' : ''}`} 
+                        to={"/crossword/all"}
+                    >
                         Crucigrama
                     </Link>
-                    <Link className="item writing" to={"/writing/all"}>
+                    <Link 
+                        className={`item writing ${location.pathname.startsWith('/writing') ? 'active' : ''}`} 
+                        to={"/writing/all"}
+                    >
                         Escritura
                     </Link>
                 </div>
             </div>
-            {!isHomePage ? (
+            {isGamePage ? (
                 <div className="points">
                     <div className="container_title">
                         <h2 className="title">Puntos</h2>
@@ -61,18 +74,8 @@ export const RightAside = ({ exerciseCount, levelCount }: RightAsideProps) => {
                                 bgColor="#FFB347"
                                 height="30px"
                                 completed={levelCount}
-                                maxCompleted={3}
-                                customLabel={`${levelCount}/3`}
-                                borderRadius="8px"
-                            />
-                            <p className="progress_text">Ejercicio actual</p>
-                            <ProgressBar
-                                className="progress_bar exercise-progress"
-                                bgColor="#69D2E7"
-                                height="30px"
-                                completed={exerciseCount}
-                                maxCompleted={5}
-                                customLabel={`${exerciseCount}/5`}
+                                maxCompleted={15}
+                                customLabel={levelCount.toString()}
                                 borderRadius="8px"
                             />
                         </div>

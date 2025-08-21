@@ -112,7 +112,7 @@
                 transform: perspective(1000px) rotateX(0deg) scale(1.02);
             }
 
-            .container_image_options {
+            .container_text_options {
                 max-width: 95%;
                 max-height: 350px;
                 display: flex;
@@ -123,7 +123,7 @@
                 background: linear-gradient(135deg, #E0F1FF 0%, #728FFF 100%);
                 border-radius: 20px;
                 box-shadow: 0 10px 30px rgba(224, 241, 255, 0.4);
-                animation: pulse 2s ease-in-out infinite;
+                animation: pulse 4s ease-in-out infinite;
             }
 
             .container {
@@ -467,7 +467,7 @@
         box-shadow: 0 10px 30px rgba(224, 241, 255, 0.4);
     }
     50% {
-        transform: scale(1.02);
+        transform: scale(1.01);
         box-shadow: 0 15px 40px rgba(224, 241, 255, 0.6);
     }
 }
@@ -604,4 +604,184 @@
             }
         }
     }
+}
+
+// Custom SweetAlert2 styles
+.swal-custom-popup {
+    border-radius: 16px !important;
+    border: 3px solid #A70CFF !important;
+    background: linear-gradient(135deg, #0D1B2A 0%, #1B2A3A 100%) !important;
+    color: #fff !important;
+    box-shadow: 
+        0 20px 40px rgba(167, 12, 255, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(20px) !important;
+    position: relative !important;
+    overflow: hidden !important;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(167, 12, 255, 0.1) 1px, transparent 1px);
+        background-size: 30px 30px;
+        animation: float 15s ease-in-out infinite;
+        z-index: 0;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, 
+            rgba(167, 12, 255, 0.1) 0%, 
+            rgba(255, 184, 0, 0.1) 25%, 
+            rgba(114, 143, 255, 0.1) 50%, 
+            rgba(255, 251, 0, 0.1) 75%, 
+            rgba(167, 12, 255, 0.1) 100%);
+        animation: rainbow 8s ease-in-out infinite;
+        z-index: 0;
+    }
+
+    .swal2-title {
+        color: #fff !important;
+        font-size: 28px !important;
+        font-weight: 800 !important;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5) !important;
+        background: linear-gradient(45deg, #FFFFFF, #A70CFF, #FFB800, #728FFF) !important;
+        background-size: 300% 300% !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-clip: text !important;
+        animation: gradientShift 3s ease-in-out infinite !important;
+        position: relative !important;
+        z-index: 1 !important;
+    }
+
+    .swal2-html-container {
+        color: #E0F1FF !important;
+        font-size: 18px !important;
+        font-weight: 600 !important;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3) !important;
+        position: relative !important;
+        z-index: 1 !important;
+    }
+
+    .swal2-icon {
+        border: none !important;
+        box-shadow: none !important;
+        position: relative !important;
+        z-index: 1 !important;
+
+        &::after {
+            content: '✨';
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            font-size: 24px;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+    }
+
+    .swal2-success-circular-line-left,
+    .swal2-success-circular-line-right,
+    .swal2-success-fix {
+        background-color: #A70CFF !important;
+    }
+
+    .swal2-success-line-tip,
+    .swal2-success-line-long {
+        background-color: #FFB800 !important;
+        box-shadow: 0 0 10px rgba(255, 184, 0, 0.5) !important;
+    }
+
+    .swal2-error-circular-line-left,
+    .swal2-error-circular-line-right,
+    .swal2-error-fix {
+        background-color: #F44336 !important;
+    }
+
+    .swal2-error-line-tip,
+    .swal2-error-line-long {
+        background-color: #FF6B6B !important;
+        box-shadow: 0 0 10px rgba(255, 107, 107, 0.5) !important;
+    }
+
+    // Timer progress bar styling
+    .swal2-timer-progress-bar {
+        background: linear-gradient(45deg, #A70CFF, #FFB800, #728FFF) !important;
+        border-radius: 4px !important;
+        height: 4px !important;
+        animation: gradientShift 2s ease-in-out infinite !important;
+    }
+}
+
+// SweetAlert2 animations
+@keyframes swalZoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.3) translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes swalZoomOut {
+    from {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.3) translateY(-50px);
+    }
+}
+
+@keyframes swalShakeX {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(5px);
+    }
+}
+
+@keyframes swalFadeOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+}
+
+// Apply animations to SweetAlert2
+.swal2-popup.animate__animated.animate__zoomIn {
+    animation: swalZoomIn 0.3s ease-out !important;
+}
+
+.swal2-popup.animate__animated.animate__zoomOut {
+    animation: swalZoomOut 0.3s ease-in !important;
+}
+
+.swal2-popup.animate__animated.animate__shakeX {
+    animation: swalShakeX 0.5s ease-in-out !important;
+}
+
+.swal2-popup.animate__animated.animate__fadeOut {
+    animation: swalFadeOut 0.3s ease-in !important;
 }
