@@ -13,7 +13,8 @@ export const gameCardData = {
             title: "Organiza el mundo",
             image: "https://picsum.photos/600/200",
             difficulty: "easy",
-            wordsKey: []
+            wordsKey: [],
+            gameId: "organize-the-world"
         },
         {
             title: "Toque inteligente",
