@@ -5,6 +5,7 @@ import "./selectionGames.scss";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 import { gameCardData } from "../Data";
 import ExplorersOfTheAnimalKingdomComponent from "../../games/Selection/ExplorersOfTheAnimalKingdom/components/Game/MainGameComponent";
+import ColorExplorersComponent from "../../games/Selection/ColorExplorers/components/Game/MainGameComponent";
 
 interface SelectionGamesProps {
     levelCount: number;
@@ -68,6 +69,8 @@ export const SelectionGames = ({ levelCount, setLevelCount }: SelectionGamesProp
         <>
             {selectedGame === "explorers-animal-kingdom" ? (
                 <ExplorersOfTheAnimalKingdomComponent levelCount={levelCount} setLevelCount={setLevelCount} />
+            ) : selectedGame === "color-explorers" ? (
+                <ColorExplorersComponent levelCount={levelCount} setLevelCount={setLevelCount} />
             ) : (
                 renderGameCard()
             )}

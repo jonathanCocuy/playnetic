@@ -20,6 +20,16 @@ export const RightAside = ({ levelCount }: RightAsideProps) => {
     const points = useSelector((state: RootState) => state.game.pointsGame);
     const totalPoints = useSelector((state: RootState) => state.game.totalPoints);
 
+    function exercisePerLevel () {
+       if (levelCount <= 5) {
+        return 1;
+       } else if (levelCount <= 10) {
+        return 2;
+       } else if (levelCount <= 15) {
+        return 3;
+       }
+    }
+
     return (
         <div className="right_aside">
             <div className="categories">
@@ -68,7 +78,7 @@ export const RightAside = ({ levelCount }: RightAsideProps) => {
                     <div className="container_title">
                         <h2 className="title">Puntos</h2>
                         <div className="progress">
-                            <p className="progress_text">Nivel actual</p>
+                            <p className="progress_text">Nivel actual: {exercisePerLevel()}</p>
                             <ProgressBar
                                 className="progress_bar level-progress"
                                 bgColor="#FFB347"

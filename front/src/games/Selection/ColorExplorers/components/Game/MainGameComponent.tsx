@@ -10,12 +10,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState, AppDispatch } from "../../../../../app/store";
 import { setPointsGame } from "../../../../../features/gamePuntuation/gameSlice";
 
-interface ExplorersOfTheAnimalKingdomComponentProps {
+interface ColorExplorersComponentProps {
     levelCount: number;
     setLevelCount: (level: number) => void;
 }
 
-const ExplorersOfTheAnimalKingdomComponent = ({ levelCount, setLevelCount }: ExplorersOfTheAnimalKingdomComponentProps) => {
+const ColorExplorersComponent = ({ levelCount, setLevelCount }: ColorExplorersComponentProps) => {
     const navigate = useNavigate();
     const dispatch = useDispatch<AppDispatch>();
     const points = useSelector((state: RootState) => state.game.pointsGame);
@@ -37,7 +37,7 @@ const ExplorersOfTheAnimalKingdomComponent = ({ levelCount, setLevelCount }: Exp
     const onSubmit = (isCorrect: boolean) => {
         if (isCorrect) {
             Swal.fire({
-                title: '¡Correcto! 🎉',
+                title: '¡Correcto! 🎨',
                 text: '¡Excelente trabajo! Has completado el nivel',
                 icon: 'success',
                 showConfirmButton: false,
@@ -61,7 +61,7 @@ const ExplorersOfTheAnimalKingdomComponent = ({ levelCount, setLevelCount }: Exp
             setLevelCount(levelCount + 1);
         } else {
             Swal.fire({
-                title: '¡Incorrecto! 😅',
+                title: '¡Incorrecto! 🎨',
                 text: 'No te rindas, ¡intenta de nuevo!',
                 icon: 'error',
                 showConfirmButton: false,
@@ -90,16 +90,16 @@ const ExplorersOfTheAnimalKingdomComponent = ({ levelCount, setLevelCount }: Exp
     const isThirdLevel = levelCount >= 11 && levelCount <= 15;
 
     // Función para obtener el título del ejercicio actual
-    const getCurrentTitle = () => {
+    const currentTitle = () => {
         if (isFirstLevel) {
             const exerciseIndex = levelCount - 1; // Convertir levelCount a índice (1->0, 2->1, etc.)
-            return dataLevel1[exerciseIndex]?.title || "Ejercicio de Animales";
+            return dataLevel1[exerciseIndex]?.title || "Explorador de Colores";
         } else if (isSecondLevel) {
             const exerciseIndex = levelCount - 6; // Convertir levelCount a índice (6->0, 7->1, etc.)
-            return dataLevel2[exerciseIndex]?.title || "Verdadero o Falso";
+            return dataLevel2[exerciseIndex]?.title || "Mezcla de Colores";
         } else if (isThirdLevel) {
             const exerciseIndex = levelCount - 11; // Convertir levelCount a índice (11->0, 12->1, etc.)
-            return dataLevel3[exerciseIndex]?.title || "Ejercicio Final";
+            return dataLevel3[exerciseIndex]?.title || "Teoría del Color";
         }
         return "¡Felicidades!";
     };
@@ -126,7 +126,7 @@ const ExplorersOfTheAnimalKingdomComponent = ({ levelCount, setLevelCount }: Exp
                 ← Volver
             </button>
             <h3 className="title_level">
-                {getCurrentTitle()}
+                {currentTitle()}
             </h3>
             {isFirstLevel ? (
                 <div className="level">
@@ -163,4 +163,4 @@ const ExplorersOfTheAnimalKingdomComponent = ({ levelCount, setLevelCount }: Exp
     );
 };
 
-export default ExplorersOfTheAnimalKingdomComponent;
+export default ColorExplorersComponent;

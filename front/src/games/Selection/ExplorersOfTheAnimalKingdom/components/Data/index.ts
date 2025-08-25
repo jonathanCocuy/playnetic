@@ -1,6 +1,4 @@
-import Turtle from "../Images/Turtle.png"
-import Dog from "../Images/Dog.png"
-import Chicken from "../Images/Chicken.png"
+import { imagesLevel1 } from "./Images";
 
 export const informationData = (data: string) => {
     const levels = {
@@ -9,10 +7,12 @@ export const informationData = (data: string) => {
                 id: 1,
                 title: "¿Cuál de estos animales es un mamífero?",
                 text: "Selecciona el animal que pertenece a la clase de los mamíferos.",
-                imageOne: Dog,
-                imageTwo: Chicken,
-                imageThree: Turtle,
                 answer: "Perro",
+                images: [
+                    { id: 1, image: imagesLevel1.Dog },
+                    { id: 2, image: imagesLevel1.Chicken },
+                    { id: 3, image: imagesLevel1.Turtle },
+                ],
                 options: [
                     { id: 1, content: "Perro" },
                     { id: 2, content: "Gallina" },
@@ -24,23 +24,31 @@ export const informationData = (data: string) => {
                 title: "¿Cuál animal vive en el agua?",
                 text: "Identifica el animal que habita principalmente en el agua.",
                 answer: "Pez",
+                images: [
+                    { id: 1, image: imagesLevel1.Cat },
+                    { id: 2, image: imagesLevel1.Fish },
+                    { id: 3, image: imagesLevel1.Rabbit },
+                ],
                 options: [
                     { id: 1, content: "Gato" },
-                    { id: 2, content: "Ave" },
-                    { id: 3, content: "Pez" },
-                    { id: 4, content: "Conejo" },
+                    { id: 2, content: "Pez" },
+                    { id: 3, content: "Conejo" },
                 ],
             },
             {
                 id: 3,
-                title: "¿Cuál es un animal doméstico?",
-                text: "Selecciona el animal que comúnmente vive con los humanos.",
-                answer: "Gato",
+                title: "¿Cuál es un animal que vive en la selva?",
+                text: "Selecciona el animal que habita comúnmente en la selva.",
+                answer: "Tigre",
+                images: [
+                    { id: 1, image: imagesLevel1.Cat },
+                    { id: 2, image: imagesLevel1.Tiger },
+                    { id: 3, image: imagesLevel1.Dog },
+                ],
                 options: [
-                    { id: 1, content: "León" },
+                    { id: 1, content: "Gato" },
                     { id: 2, content: "Tigre" },
-                    { id: 3, content: "Gato" },
-                    { id: 4, content: "Lobo" },
+                    { id: 3, content: "Perro" },
                 ],
             },
             {
@@ -48,11 +56,15 @@ export const informationData = (data: string) => {
                 title: "¿Cuál animal vuela?",
                 text: "Identifica el animal que puede volar.",
                 answer: "Águila",
+                images: [
+                    { id: 1, image: imagesLevel1.Snake },
+                    { id: 2, image: imagesLevel1.Frog },
+                    { id: 3, image: imagesLevel1.Eagle },
+                ],
                 options: [
                     { id: 1, content: "Serpiente" },
                     { id: 2, content: "Rana" },
                     { id: 3, content: "Águila" },
-                    { id: 4, content: "Tortuga" },
                 ],
             },
             {
@@ -60,63 +72,72 @@ export const informationData = (data: string) => {
                 title: "¿Cuál es un animal herbívoro?",
                 text: "Selecciona el animal que se alimenta principalmente de plantas.",
                 answer: "Vaca",
+                images: [
+                    { id: 1, image: imagesLevel1.Elephant },
+                    { id: 2, image: imagesLevel1.Cow },
+                    { id: 3, image: imagesLevel1.Wolf },
+                ],
                 options: [
-                    { id: 1, content: "León" },
-                    { id: 2, content: "Tigre" },
-                    { id: 3, content: "Vaca" },
-                    { id: 4, content: "Lobo" },
+                    { id: 1, content: "Elefante" },
+                    { id: 2, content: "Vaca" },
+                    { id: 3, content: "Lobo" },
                 ],
             },
         ],
         level2: [
             {
                 id: 1,
-                title: "¿Los mamíferos amamantan a sus crías?",
-                text: "Verdadero o falso: Los mamíferos alimentan a sus crías con leche.",
-                answer: "correct",
+                title: "¿El Sol es una estrella?",
+                text: "El Sol pertenece a la categoría de estrellas.",
+                answer: "Correcto",
+                images: [{ id: 0, image: imagesLevel1.Sun }],
                 options: [
-                    { id: 1, content: "false" },
-                    { id: 2, content: "correct" },
+                    { id: 1, content: "Falso" },
+                    { id: 2, content: "Correcto" },
                 ],
             },
             {
                 id: 2,
-                title: "¿Los peces respiran bajo el agua?",
-                text: "Verdadero o falso: Los peces pueden respirar oxígeno del agua.",
-                answer: "correct",
+                title: "¿Las ballenas son peces?",
+                text: "Las ballenas se clasifican como peces.",
+                answer: "Falso",
+                images: [{ id: 0, image: imagesLevel1.Whale }],
                 options: [
-                    { id: 1, content: "false" },
-                    { id: 2, content: "correct" },
+                    { id: 1, content: "Falso" },
+                    { id: 2, content: "Correcto" },
                 ],
             },
             {
                 id: 3,
-                title: "¿Las aves tienen plumas?",
-                text: "Verdadero o falso: Todas las aves están cubiertas de plumas.",
-                answer: "correct",
+                title: "¿Los murciélagos pueden volar?",
+                text: "Los murciélagos son los únicos mamíferos capaces de volar.",
+                answer: "Correcto",
+                images: [{ id: 0, image: imagesLevel1.Bat }],
                 options: [
-                    { id: 1, content: "correct" },
-                    { id: 2, content: "false" },
+                    { id: 1, content: "Correcto" },
+                    { id: 2, content: "Falso" },
                 ],
             },
             {
                 id: 4,
-                title: "¿Los reptiles son de sangre fría?",
-                text: "Verdadero o falso: Los reptiles regulan su temperatura corporal.",
-                answer: "correct",
+                title: "¿Las plantas producen oxígeno?",
+                text: "Durante la fotosíntesis, las plantas liberan oxígeno.",
+                answer: "Correcto",
+                images: [{ id: 0, image: imagesLevel1.Plant }],
                 options: [
-                    { id: 1, content: "false" },
-                    { id: 2, content: "correct" },
+                    { id: 1, content: "Falso" },
+                    { id: 2, content: "Correcto" },
                 ],
             },
             {
                 id: 5,
-                title: "¿Los anfibios viven en tierra y agua?",
-                text: "Verdadero o falso: Los anfibios pueden vivir en ambos medios.",
-                answer: "correct",
+                title: "¿Los pingüinos pueden volar?",
+                text: "Los pingüinos pueden volar como otras aves.",
+                answer: "Falso",
+                images: [{ id: 0, image: imagesLevel1.Penguin }],
                 options: [
-                    { id: 1, content: "correct" },
-                    { id: 2, content: "false" },
+                    { id: 1, content: "Correcto" },
+                    { id: 2, content: "Falso" },
                 ],
             },
         ],
@@ -126,6 +147,7 @@ export const informationData = (data: string) => {
                 title: "¿Cuál es el hábitat del león?",
                 text: "Selecciona el hábitat natural del león.",
                 answer: "Sabana",
+                images: [{ id: 1, image: imagesLevel1.Lion }],
                 options: [
                     { id: 1, content: "Océano" },
                     { id: 2, content: "Sabana" },
@@ -136,6 +158,7 @@ export const informationData = (data: string) => {
                 title: "¿Qué come el conejo?",
                 text: "Identifica la dieta principal del conejo.",
                 answer: "Plantas",
+                images: [{ id: 1, image: imagesLevel1.Rabbit }],
                 options: [
                     { id: 1, content: "Plantas" },
                     { id: 2, content: "Carne" },
@@ -146,6 +169,7 @@ export const informationData = (data: string) => {
                 title: "¿Cómo se reproduce el pez?",
                 text: "Selecciona el método de reproducción de los peces.",
                 answer: "Poniendo huevos",
+                images: [{ id: 1, image: imagesLevel1.Fish }],
                 options: [
                     { id: 1, content: "Poniendo huevos" },
                     { id: 2, content: "Dando a luz" },
@@ -156,6 +180,7 @@ export const informationData = (data: string) => {
                 title: "¿Cuál es el sentido más desarrollado del águila?",
                 text: "Identifica el sentido más agudo del águila.",
                 answer: "Vista",
+                images: [{ id: 1, image: imagesLevel1.Eagle }],
                 options: [
                     { id: 1, content: "Olfato" },
                     { id: 2, content: "Vista" },
@@ -166,6 +191,7 @@ export const informationData = (data: string) => {
                 title: "¿Cómo se protege el erizo?",
                 text: "Selecciona el método de defensa del erizo.",
                 answer: "Con púas",
+                images: [{ id: 1, image: imagesLevel1.SeaUrchin }],
                 options: [
                     { id: 1, content: "Con veneno" },
                     { id: 2, content: "Con púas" },

@@ -1,4 +1,5 @@
 import explorersOfTheAnimalKingdom from "../Images/explorers-animal-kingdom.png"
+import colorExplorers from "../Images/color-explorers.jpg"
 
 export const gameCardData = {
     selection: [
@@ -10,17 +11,11 @@ export const gameCardData = {
             gameId: "explorers-animal-kingdom"
         },
         {
-            title: "Organiza el mundo",
-            image: "https://picsum.photos/600/200",
+            title: "Explorador de Colores",
+            image: colorExplorers,
             difficulty: "easy",
             wordsKey: [],
-            gameId: "organize-the-world"
-        },
-        {
-            title: "Toque inteligente",
-            image: "https://picsum.photos/300/200",
-            difficulty: "medium",
-            wordsKey: []
+            gameId: "color-explorers"
         }
     ],
     dnd: [

@@ -17,7 +17,7 @@ interface ISubLevel {
         title: string;
         answer: string;
         options: Option[];
-        images?: Image[];
+        images: Image[];
     };
     onSubmit: (isCorrect: boolean) => void;
     level: number;
