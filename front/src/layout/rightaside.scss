@@ -1,6 +1,6 @@
 @use "../styles/vars" as *;
 
-.right_aside {
+.right-aside {
     width: 20%;
     height: 100vh;
     background: #e6daf8;
@@ -27,7 +27,7 @@
             padding-left: 16px;
         }
 
-        .category_list {
+        .category__list {
             margin: 8px;
             height: 230px;
             padding: 16px;
@@ -176,7 +176,7 @@
             flex-direction: column;
             gap: 10px;
 
-            .progress_text {
+            .progress__text {
                 font-size: 20px;
                 font-weight: 600;
             }
@@ -313,7 +313,7 @@
                 }
             }
 
-            .container_points {
+            .container__points {
                 display: flex;
                 font-size: 45px;
 
@@ -331,7 +331,7 @@
             }
         }
 
-        .progress_text_alt {
+        .progress__text-alt {
             font-size: 14px;
             padding: 0px 16px;
             color: #fff;

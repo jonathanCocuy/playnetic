@@ -1,25 +1,25 @@
-.crossword_games {
+.crossword-games {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 1rem;
 
-    .crossword_header {
+    .crossword__header {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 1rem;
 
-        .crossword_title {
+        .crossword__title {
             font-size: 2rem;
             color: #4B0082;
             font-weight: 600;
         }
     }
 
-    .crossword_list {
+    .crossword__list {
         display: flex;
         align-items: center;
         justify-content: center;

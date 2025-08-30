@@ -74,11 +74,11 @@ const GameCard: React.FC<GameCardProps> = ({
             className={`card-spotlight ${className}`}
         >
             {children}
-            <img src={image} alt="DND" className="game_card_image" />
-            <div className="container_text">
+            <img src={image} alt="DND" className="game-card-image" />
+            <div className="container-text">
                 <h1 className="title">{title}</h1>
             </div>
-            <div className="container_button">
+            <div className="container-button">
                 <GameButton 
                     name="J U G A R" 
                     onClick={() => {

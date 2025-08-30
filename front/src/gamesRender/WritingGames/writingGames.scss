@@ -1,28 +1,28 @@
-.writing_games {
+.writing-games {    
     display: flex;
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
     gap: 1rem;
 
-    .writing_header {
+    .writing__header {
         display: flex;
-        flex-direction: column;
         align-items: center;
+        flex-direction: column;
         justify-content: center;
         gap: 1rem;
 
-        .writing_title {
+        .writing__title {
             font-size: 2rem;
             color: #4B0082;
             font-weight: 600;
         }
     }
 
-    .writing_list {
+    .writing__list {
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 1rem;
+        gap: 1rem;  
     }                       
 } 

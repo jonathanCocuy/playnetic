@@ -31,10 +31,10 @@ export const RightAside = ({ levelCount }: RightAsideProps) => {
     }
 
     return (
-        <div className="right_aside">
+        <div className="right-aside">
             <div className="categories">
                 <h2 className="title">Categorías</h2>
-                <div className="category_list">
+                <div className="category__list">
                     <Link 
                         className={`item selection ${location.pathname.startsWith('/selection') ? 'active' : ''}`} 
                         to={"/selection/all"}
@@ -75,10 +75,10 @@ export const RightAside = ({ levelCount }: RightAsideProps) => {
             </div>
             {isGamePage ? (
                 <div className="points">
-                    <div className="container_title">
+                    <div className="container__title">
                         <h2 className="title">Puntos</h2>
                         <div className="progress">
-                            <p className="progress_text">Nivel actual: {exercisePerLevel()}</p>
+                            <p className="progress__text">Nivel actual: {exercisePerLevel()}</p>
                             <ProgressBar
                                 className="progress_bar level-progress"
                                 bgColor="#FFB347"
@@ -90,7 +90,7 @@ export const RightAside = ({ levelCount }: RightAsideProps) => {
                             />
                         </div>
                         <div className="progress">
-                            <p className="progress_text">Tus puntos</p>
+                            <p className="progress__text">Tus puntos</p>
                             <div className="container_points">
                                 <CountUp
                                     from={0}
@@ -101,7 +101,7 @@ export const RightAside = ({ levelCount }: RightAsideProps) => {
                                     className={color}
                                 />
                                 {/* Maximum points per game */}
-                                <p className="points_text"> /1500</p>
+                                <p className="points__text"> /1500</p>
                             </div>
                         </div>
                     </div>
@@ -109,12 +109,12 @@ export const RightAside = ({ levelCount }: RightAsideProps) => {
             ) : (
                 <div className="points">
                     <div className="progress">
-                        <p className="progress_text">Puntos totales</p>
-                        <span className="progress_text_alt">
+                        <p className="progress__text">Puntos totales</p>
+                        <span className="progress__text-alt">
                             Aquí podrás ver la suma de tus puntos totales de
                             todos los juegos.
                         </span>
-                        <div className="container_points">
+                        <div className="container__points">
                             <CountUp
                                 from={0}
                                 to={totalPoints}
@@ -124,7 +124,7 @@ export const RightAside = ({ levelCount }: RightAsideProps) => {
                                 className={color}
                             />
                             {/* Maximum points in everything games */}
-                            <p className="points_text"> /90000</p>
+                            <p className="points__text"> /90000</p>
                         </div>
                     </div>
                 </div>

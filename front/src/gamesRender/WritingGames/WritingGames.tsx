@@ -12,12 +12,12 @@ export const WritingGames = () => {
         : gameCardData.writing.filter(game => game.difficulty === difficulty);
 
     return (
-        <div className="writing_games">                      
-            <div className="writing_header">
+        <div className="writing-games">                      
+            <div className="writing__header">
                 <h1 className="writing_title">Juegos de Escritura</h1>
             </div>
             <CategoriesLevel game="writing" />
-            <div className="writing_list">
+            <div className="writing__list">
                 {filteredGames.map((game, index) => (
                     <GameCard
                         key={index}

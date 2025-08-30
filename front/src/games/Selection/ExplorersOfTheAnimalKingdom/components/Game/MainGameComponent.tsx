@@ -90,7 +90,7 @@ const ExplorersOfTheAnimalKingdomComponent = ({ levelCount, setLevelCount }: Exp
     const isThirdLevel = levelCount >= 11 && levelCount <= 15;
 
     // Función para obtener el título del ejercicio actual
-    const getCurrentTitle = () => {
+    const currentTitle = () => {
         if (isFirstLevel) {
             const exerciseIndex = levelCount - 1; // Convertir levelCount a índice (1->0, 2->1, etc.)
             return dataLevel1[exerciseIndex]?.title || "Ejercicio de Animales";
@@ -105,7 +105,7 @@ const ExplorersOfTheAnimalKingdomComponent = ({ levelCount, setLevelCount }: Exp
     };
 
     return (
-        <div className="explorers_of_the_animal_kingdom">
+        <div className="explorers-of-the-animal-kingdom">
             <button 
                 onClick={() => navigate('/selection/all')}
                 style={{
@@ -125,8 +125,8 @@ const ExplorersOfTheAnimalKingdomComponent = ({ levelCount, setLevelCount }: Exp
             >
                 ← Volver
             </button>
-            <h3 className="title_level">
-                {getCurrentTitle()}
+            <h3 className="title-level">
+                {currentTitle()}
             </h3>
             {isFirstLevel ? (
                 <div className="level">

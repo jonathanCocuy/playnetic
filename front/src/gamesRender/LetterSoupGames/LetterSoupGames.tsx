@@ -12,12 +12,12 @@ export const LetterSoupGames = () => {
         : gameCardData.lettersoup.filter(game => game.difficulty === difficulty);
 
     return (
-        <div className="letter_soup_games">                      
-            <div className="letter_soup_header">
-                <h1 className="letter_soup_title">Juegos de Sopa de Letras</h1>
+        <div className="letter-soup-games">                           
+            <div className="letter-soup__header">
+                <h1 className="letter-soup__title">Juegos de Sopa de Letras</h1>
             </div>
             <CategoriesLevel game="lettersoup" />
-            <div className="letter_soup_list">
+            <div className="letter-soup__list">
                 {filteredGames.map((game, index) => (
                     <GameCard
                         key={index}

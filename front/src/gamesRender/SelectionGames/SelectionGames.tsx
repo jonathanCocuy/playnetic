@@ -44,12 +44,12 @@ export const SelectionGames = ({ levelCount, setLevelCount }: SelectionGamesProp
 
     const renderGameCard = () => {
         return (
-            <div className="selection_games">                      
-                <div className="selection_header"> 
-                    <h1 className="selection_title">Juegos de Selección</h1>
+            <div className="selection-games">                      
+                <div className="selection__header"> 
+                    <h1 className="selection__title">Juegos de Selección</h1>
                 </div>
                 <CategoriesLevel game="selection" />
-                <div className="selection_list">
+                <div className="selection__list">
                     {filteredGames.map((game, index) => (
                         <GameCard
                             key={index}

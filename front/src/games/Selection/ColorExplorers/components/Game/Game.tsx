@@ -76,11 +76,11 @@ export const Sublevel = ({ data, onSubmit }: ISubLevel) => {
     const OPTIONS = dataToShow.options;
 
     return (
-        <div className="sublevel_container">
-            <div className="container_text_options">
+        <div className="sublevel-container">
+            <div className="container-text-options">
                 <div className="container">
                     <p className="text">{dataToShow.text}</p>
-                    <div className="container_image">
+                    <div className="container-image">
                         {IMAGES?.map((image, index) => (
                             <img 
                                 key={index}
@@ -92,12 +92,12 @@ export const Sublevel = ({ data, onSubmit }: ISubLevel) => {
                         ))}
                     </div>
                 </div>
-                <div className="container_options">
+                <div className="container-options">
                     {OPTIONS.map((option) => (
                         <div
                             key={option.id}
                             onClick={() => handleMarkOption(option.id)}
-                            className={option.id === selected ? "option_word_selected" : "option_word"}
+                            className={option.id === selected ? "option-word__selected" : "option-word"}
                         >
                             <div>
                                 <p>{option.content}</p>
@@ -106,7 +106,7 @@ export const Sublevel = ({ data, onSubmit }: ISubLevel) => {
                     ))}
                 </div>
             </div>
-            <div className={validateActiveSubmit ? "buttons_selecteds" : "buttons"}>
+            <div className={validateActiveSubmit ? "buttons__selecteds" : "buttons"}>
                 <button className="submit-button" onClick={() => onSubmit(validateActions())}>
                     {"CONFIRMAR"}
                 </button>

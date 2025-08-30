@@ -28,9 +28,9 @@ export const MainLayout = () => {
                 v7_relativeSplatPath: true, // Change the behavior of routes with * to make them more intuitive
             }}
         >
-            <div className="main_layout">
+            <div className="main-layout">
                 <Sidebar />
-                <div className="content_center">
+                <div className="content-center">
                     <Topbar />
                     <div className="game" key={levelCount}>
                         <Routes>

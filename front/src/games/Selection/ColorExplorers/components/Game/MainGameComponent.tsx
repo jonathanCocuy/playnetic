@@ -105,7 +105,7 @@ const ColorExplorersComponent = ({ levelCount, setLevelCount }: ColorExplorersCo
     };
 
     return (
-        <div className="explorers_of_the_animal_kingdom">
+        <div className="color-explorers">
             <button 
                 onClick={() => navigate('/selection/all')}
                 style={{
@@ -125,7 +125,7 @@ const ColorExplorersComponent = ({ levelCount, setLevelCount }: ColorExplorersCo
             >
                 ← Volver
             </button>
-            <h3 className="title_level">
+            <h3 className="title-level">
                 {currentTitle()}
             </h3>
             {isFirstLevel ? (

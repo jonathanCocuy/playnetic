@@ -2,9 +2,9 @@ import "./gamebutton.scss";
 
 interface GameButtonProps {
     name: string;
-    onClick?: () => void;
+    onClick: () => void;
 }
 
 export const GameButton = ({ name, onClick }: GameButtonProps) => {
-    return <button className="button_game" onClick={onClick}>{name}</button>;
+    return <button className="button-game" onClick={onClick}>{name}</button>;
 };

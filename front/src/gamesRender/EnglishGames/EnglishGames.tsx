@@ -12,12 +12,12 @@ export const EnglishGames = () => {
         : gameCardData.english.filter(game => game.difficulty === difficulty);
 
     return (
-        <div className="english_games">                      
-            <div className="english_header">
-                <h1 className="english_title">Juegos de Inglés</h1>
+        <div className="english-games">                      
+            <div className="english__header">
+                <h1 className="english__title">Juegos de Inglés</h1>
             </div>
             <CategoriesLevel game="english" />
-            <div className="english_list">
+            <div className="english__list">
                 {filteredGames.map((game, index) => (
                     <GameCard
                         key={index}

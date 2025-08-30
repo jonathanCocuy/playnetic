@@ -1,4 +1,4 @@
-.explorers_of_the_animal_kingdom {
+.explorers-of-the-animal-kingdom {
     width: 100%;
     height: 100%;
     padding: 20px;
@@ -43,7 +43,7 @@
         z-index: 0;
     }
 
-    .title_level {
+    .title-level {
         margin: 0px;
         width: 100%;
         height: auto;
@@ -92,7 +92,7 @@
         position: relative;
         z-index: 1;
 
-        .sublevel_container {
+        .sublevel-container {
             width: 100%;
             min-height: 350px;
             display: flex;
@@ -109,7 +109,7 @@
                 transform: perspective(1000px) rotateX(0deg) scale(1.02);
             }
 
-            .container_text_options {
+            .container-text-options {
                 max-width: 95%;
                 max-height: 350px;
                 display: flex;
@@ -131,7 +131,7 @@
                 flex-direction: column;
                 gap: 15px;
 
-                .container_image {
+                .container-image {
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -170,7 +170,7 @@
                 }
             }
 
-            .container_options {
+            .container-options {
                 width: 100%;
                 max-width: 300px;
                 display: flex;
@@ -200,7 +200,7 @@
                 }
             }
 
-            .option_word {
+            .option-word {
                 font-size: 16px;
                 line-height: 26px;
                 font-weight: 700;
@@ -261,7 +261,7 @@
                 }
             }
 
-            .option_word_selected {
+            .option-word__selected {
                 font-size: 16px;
                 line-height: 26px;
                 letter-spacing: 0.5px;
@@ -301,7 +301,7 @@
                 }
             }
 
-            .buttons_selecteds {
+            .buttons__selecteds {
                 width: 100%;
                 margin: 0px;
                 display: flex;
@@ -556,27 +556,27 @@
 
 // Responsive design for different screen sizes
 @media (max-width: 768px) {
-    .explorers_of_the_animal_kingdom {
+    .explorers-of-the-animal-kingdom {
         padding: 15px;
         
-        .title_level {
+        .title-level {
             font-size: 28px;
         }
         
-        .level .sublevel_container {
+        .level .sublevel-container {
             padding: 20px;
             
-            .container_image_options {
+            .container-image-options {
                 gap: 30px;
                 padding: 15px;
             }
             
-            .option_word, .option_word_selected {
+            .option-word, .option-word__selected {
                 font-size: 14px;
                 padding: 10px 16px;
             }
             
-            .buttons .submit-button, .buttons_selecteds .submit-button {
+            .buttons .submit-button, .buttons__selecteds .submit-button {
                 width: 120px;
                 height: 45px;
                 font-size: 16px;
@@ -586,27 +586,27 @@
 }
 
 @media (max-width: 480px) {
-    .explorers_of_the_animal_kingdom {
+    .explorers-of-the-animal-kingdom {
         padding: 10px;
         
-        .title_level {
+        .title-level {
             font-size: 24px;
         }
         
-        .level .sublevel_container {
+        .level .sublevel-container {
             padding: 15px;
             
-            .container_image_options {
+            .container-image-options {
                 gap: 20px;
                 padding: 10px;
             }
             
-            .option_word, .option_word_selected {
+            .option-word, .option-word__selected {
                 font-size: 12px;
                 padding: 8px 12px;
             }
             
-            .buttons .submit-button, .buttons_selecteds .submit-button {
+            .buttons .submit-button, .buttons__selecteds .submit-button {
                 width: 100px;
                 height: 40px;
                 font-size: 14px;

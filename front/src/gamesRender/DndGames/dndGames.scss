@@ -1,25 +1,25 @@
-.dnd_games {
+.dnd-games {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 1rem;
 
-    .dnd_header {
+    .dnd__header {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: center;  
         gap: 1rem;
 
-        .dnd_title {
+        .dnd__title {
             font-size: 2rem;
             color: #4B0082;
             font-weight: 600;
         }
     }
 
-    .dnd_list {
+    .dnd__list {
         display: flex;
         align-items: center;
         justify-content: center;

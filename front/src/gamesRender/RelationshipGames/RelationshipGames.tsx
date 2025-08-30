@@ -12,12 +12,12 @@ export const RelationshipGames = () => {
         : gameCardData.relationship.filter(game => game.difficulty === difficulty);
 
     return (
-        <div className="relationship_games">                      
-            <div className="relationship_header">
-                <h1 className="relationship_title">Juegos de Relaciones</h1>
+        <div className="relationship-games">                      
+            <div className="relationship__header">
+                <h1 className="relationship__title">Juegos de Relaciones</h1>
             </div>
             <CategoriesLevel game="relationship" />
-            <div className="relationship_list">
+            <div className="relationship__list">
                 {filteredGames.map((game, index) => (
                     <GameCard
                         key={index}

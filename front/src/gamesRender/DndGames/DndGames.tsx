@@ -17,12 +17,12 @@ export const DndGames = (/* { levelCount, setLevelCount }: DndGamesProps */) => 
         : gameCardData.dnd.filter(game => game.difficulty === difficulty);
 
     return (
-        <div className="dnd_games">                      
-            <div className="dnd_header">
-                <h1 className="dnd_title">Juegos de Arrastrar y Soltar</h1>
+        <div className="dnd-games">                      
+            <div className="dnd__header">
+                <h1 className="dnd__title">Juegos de Arrastrar y Soltar</h1>
             </div>
             <CategoriesLevel game="dnd" />
-            <div className="dnd_list">
+            <div className="dnd__list">  
                 {filteredGames.map((game, index) => (
                     <GameCard
                         key={index}

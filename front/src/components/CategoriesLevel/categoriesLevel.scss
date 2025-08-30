@@ -1,17 +1,17 @@
-.categories_level {
+.categories-level {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 10px;
 
-    .categories_title {
+    .categories-title {
         font-size: 1.5rem;
         font-weight: 600;
         color: #000;
     }
 
-    .categories_list {
+    .categories-list {
         display: flex;
         gap: 10px;
 
@@ -27,7 +27,7 @@
             background: var(--button_outline_color);
             text-decoration: none;
 
-            .button_top {
+            .button-top {
                 display: block;
                 box-sizing: border-box;
                 border: 2px solid var(--button_outline_color);
@@ -70,7 +70,7 @@
         }
 
         .active {
-            .button_top {
+            .button-top {
                 transform: translateY(-0.50em);
             }
         }

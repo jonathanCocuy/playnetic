@@ -1,4 +1,4 @@
-.selection_games {
+.selection-games {  
     padding: 16px;
     display: flex;
     flex-direction: column;
@@ -6,21 +6,21 @@
     justify-content: center;
     gap: 1rem;
 
-    .selection_header {
+    .selection__header {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 1rem;
 
-        .selection_title {
+        .selection__title {
             font-size: 2rem;
             color: #4B0082;
             font-weight: 600;
         }
     }
 
-    .selection_list {
+    .selection__list {
         display: flex;
         align-items: center;
         justify-content: center;

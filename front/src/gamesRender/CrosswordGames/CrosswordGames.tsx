@@ -12,12 +12,12 @@ export const CrosswordGames = () => {
         : gameCardData.crossword.filter(game => game.difficulty === difficulty);
 
     return (
-        <div className="crossword_games">                      
-            <div className="crossword_header">
-                <h1 className="crossword_title">Juegos de Crucigramas</h1>
+        <div className="crossword-games">                      
+            <div className="crossword__header">
+                <h1 className="crossword__title">Juegos de Crucigramas</h1>
             </div>
             <CategoriesLevel game="crossword" />
-            <div className="crossword_list">
+            <div className="crossword__list">
                 {filteredGames.map((game, index) => (
                     <GameCard
                         key={index}

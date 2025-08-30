@@ -27,13 +27,13 @@
     form {
         width: 100%;
 
-        .input_container {
+        .input-container {
             position: relative;
             padding: 20px 0 0;
             width: 100%;
             max-width: 180px;
 
-            .form_field {
+            .form-field {
                 font-family: inherit;
                 width: 100%;
                 border: none;
@@ -46,17 +46,17 @@
                 transition: border-color 0.2s;
             }
 
-            .form_field::placeholder {
+            .form-field::placeholder {
                 color: transparent;
             }
 
-            .form_field:placeholder-shown ~ .form_label {
+            .form-field:placeholder-shown ~ .form-label {
                 font-size: 17px;
                 cursor: text;
                 top: 20px;
             }
 
-            .form_label {
+            .form-label {
                 position: absolute;
                 top: 0;
                 display: block;
@@ -66,7 +66,7 @@
                 pointer-events: none;
             }
 
-            .form_field:focus {
+            .form-field:focus {
                 padding-bottom: 6px;
                 font-weight: 700;
                 border-width: 3px;
@@ -74,7 +74,7 @@
                 border-image-slice: 1;
             }
 
-            .form_field:focus ~ .form_label {
+            .form-field:focus ~ .form-label {
                 position: absolute;
                 top: 0;
                 display: block;
@@ -84,8 +84,8 @@
                 font-weight: 700;
             }
 
-            .form_field:required,
-            .form_field:invalid {
+            .form-field:required,
+            .form-field:invalid {
                 box-shadow: none;
             }
         }

@@ -7,10 +7,7 @@ interface GridMotionProps {
     gradientColor?: string;
 }
 
-const GridMotion: FC<GridMotionProps> = ({
-    items = [],
-    gradientColor = "black",
-}) => {
+const GridMotion: FC<GridMotionProps> = ({ items = [], gradientColor = "black" }) => {
     const gridRef = useRef<HTMLDivElement>(null);
     const rowRefs = useRef<(HTMLDivElement | null)[]>([]);
     const mouseXRef = useRef<number>(window.innerWidth / 2);
@@ -67,45 +64,22 @@ const GridMotion: FC<GridMotionProps> = ({
 
     return (
         <div className="noscroll loading" ref={gridRef}>
-            <section
-                className="intro"
-                style={{
-                    background: `radial-gradient(circle, ${gradientColor} 0%, transparent 100%)`,
-                }}
-            >
+            <section className="intro" style={{ background: `radial-gradient(circle, ${gradientColor} 0%, transparent 100%)` }}>
                 <div className="gridMotion-container">
                     {Array.from({ length: 4 }, (_, rowIndex) => (
-                        <div
-                            key={rowIndex}
-                            className="row"
-                            ref={(el) => {
-                                rowRefs.current[rowIndex] = el;
-                            }}
-                        >
+                        <div key={rowIndex} className="row" ref={(el) => { rowRefs.current[rowIndex] = el; }}>
                             {Array.from({ length: 7 }, (_, itemIndex) => {
-                                const content =
-                                    combinedItems[rowIndex * 7 + itemIndex];
+                                const content = combinedItems[rowIndex * 7 + itemIndex];
                                 return (
                                     <div key={itemIndex} className="row__item">
-                                        <div
-                                            className="row__item-inner"
-                                            style={{ backgroundColor: "#111" }}
-                                        >
+                                        <div className="row__item-inner" style={{ backgroundColor: "#111" }}>
                                             {typeof content === "string" &&
-                                            content.startsWith("http") ? (
-                                                <div
-                                                    className="row__item-img"
-                                                    style={{
-                                                        backgroundImage: `url(${content})`,
-                                                    }}
-                                                ></div>
-                                            ) : (
-                                                <img
-                                                    src={content}
-                                                    alt="image"
-                                                    className="row__item-img"
-                                                />
-                                            )}
+                                                content.startsWith("http") ? (
+                                                    <div className="row__item-img" style={{ backgroundImage: `url(${content})`, }}></div>
+                                                ) : (
+                                                    <img src={content} alt="image" className="row__item-img" />
+                                                )
+                                            }
                                         </div>
                                     </div>
                                 );

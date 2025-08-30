@@ -5,7 +5,7 @@ import "./LoginScreen.scss";
 
 function LoginScreen() {
     return (
-        <section className="loginScreen">
+        <section className="login-screen">
             <Login />
 
             <GridMotion items={items} />
