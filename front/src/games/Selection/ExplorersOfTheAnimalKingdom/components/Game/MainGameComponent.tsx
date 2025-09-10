@@ -81,7 +81,7 @@ const ExplorersOfTheAnimalKingdomComponent = ({ levelCount, setLevelCount }: Exp
                     toast.addEventListener('mouseleave', Swal.resumeTimer)
                 }
             });
-            dispatch(setPointsGame({ points: points - 50, color: "red" }));
+            dispatch(setPointsGame(points === 0 ? { points: 0, color: "normal" } : { points: points - 50, color: "red" }));
         }
     };
 

@@ -91,7 +91,7 @@ export const RightAside = ({ levelCount }: RightAsideProps) => {
                         </div>
                         <div className="progress">
                             <p className="progress__text">Tus puntos</p>
-                            <div className="container_points">
+                            <div className="container__points">
                                 <CountUp
                                     from={0}
                                     to={points}
