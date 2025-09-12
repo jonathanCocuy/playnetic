@@ -1,13 +1,10 @@
 import "./gamebutton.scss";
 
 interface GameButtonProps {
-  name: string;
+    name: string;
+    onClick: () => void;
 }
 
-export const GameButton = ({ name }: GameButtonProps) => {
-  return (
-    <button className="button_game">
-      {name}
-    </button>
-  );
+export const GameButton = ({ name, onClick }: GameButtonProps) => {
+    return <button className="button-game" onClick={onClick}>{name}</button>;
 };

@@ -1,86 +1,87 @@
 .sidebar {
-  width: 100px;
-  height: 100vh;
-  z-index: 1000;
-  background-color: #404040;
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: start;
-  gap: 5%;
-
-  .container_logo {
-    height: 100%;
-
-    .logo {
-      width: 35px;
-      padding-top: 40px;
-    }
-  }
-
-  .container_list {
-    margin: 0;
-    padding-left: 0;
-    list-style: none;
-    text-decoration: none;
+    width: 100px;
+    height: 100vh;
+    z-index: 1000;
+    background-color: #8338ec;
+    position: fixed;
+    top: 0;
+    left: 0;
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: center;
-    gap: 40px;
-
-    .list {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      &:hover {
-        color: #3c4b7a;
-        transition: 0.3s ease;
-      }
-
-      .link {
-        color: white;
-        text-decoration: none;
-
-        &:hover {
-          color: #3c4b7a;
-          transition: 0.3s ease;
-        }
-
-        .icon {
-          width: 100%;
-          color: white;
-
-          &:hover {
-            color: #3c4b7a;
-            transition: 0.3s ease;
-          }
-        }
-      }
-    }
-  }
-
-  .page {
-    height: 100%;
     justify-content: start;
-  }
+    gap: 5%;
 
-  .user {
-    height: 100%;
-  }
+    .container__logo {
+        height: 100%;
 
-  .logout {
-    height: 100%;
-    padding-bottom: 30px;
-    justify-content: end;
-  }
+        .logo {
+            width: 100px;
+            padding-top: 40px;
+        }
+    }
 
-  hr {
-    width: 60%;
-    border-radius: 50%;
-  }
+    .container__list {
+        margin: 0;
+        padding-left: 0;
+        list-style: none;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        gap: 40px;
+
+        .list {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:hover {
+                color: #3c4b7a;
+                transition: 0.3s ease;
+            }
+
+            .link {
+                color: white;
+                text-decoration: none;
+
+                &:hover {
+                    color: #2d106e;
+                    transform: scale(1.1);
+                    transition: 0.5s ease;
+                }
+
+                .icon {
+                    width: 100%;
+                    color: white;
+
+                    &:hover {
+                        color: #3c4b7a;
+                        transition: 0.3s ease;
+                    }
+                }
+            }
+        }
+    }
+
+    .page {
+        height: 100%;
+        justify-content: start;
+    }
+
+    .user {
+        height: 100%;
+    }
+
+    .logout {
+        height: 100%;
+        padding-bottom: 30px;
+        justify-content: end;
+    }
+
+    hr {
+        width: 60%;
+        border-radius: 50%;
+    }
 }

@@ -1,57 +1,78 @@
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 // Componets Layout
 import { Sidebar } from "./Sidebar";
 import { useState } from "react";
 import { Topbar } from "./Topbar";
 import { RightAside } from "./RightAside";
 // Games
-import IdCard from "../games/components/idCard/idCard";
-import GameCard from "../components/GameCard/GameCard";
-
+import { DndGames } from "../gamesRender/DndGames/DndGames";
+import { SelectionGames } from "../gamesRender/SelectionGames/SelectionGames";
+import { EnglishGames } from "../gamesRender/EnglishGames/EnglishGames";
+import { CrosswordGames } from "../gamesRender/CrosswordGames/CrosswordGames";
+import { LetterSoupGames } from "../gamesRender/LetterSoupGames/LetterSoupGames";
+import { WritingGames } from "../gamesRender/WritingGames/WritingGames";
+import { RelationshipGames } from "../gamesRender/RelationshipGames/RelationshipGames";
 import "./mainlayout.scss";
+/* import CreatingAnAnecdoteJCComponent from "../games/Selection/ExplorersOfTheAnimalKingdom/components/Game/MainGameComponent"; */
 
 // import LoginScreen from "../screens/loginScreen/LoginScreen";
 
 export const MainLayout = () => {
-  const [logged, setLogged] = useState(true)
-  const [exerciseCount, setExerciseCount] = useState(1);
+    // Global state for all games
+    const [levelCount, setLevelCount] = useState(1);
 
-  return (
-    <BrowserRouter
-      future={{
-        v7_startTransition: true, // Used to improve browsing performance
-        v7_relativeSplatPath: true, // Change the behavior of routes with * to make them more intuitive
-      }}
-    >
-      <div className="main_layout">
-        <Sidebar />
-        <div className="content_center">
-          <Topbar />
-          <div className="game" key={exerciseCount}>
-            <button onClick={() => setLogged(!logged)}>Cambiar estado</button>
-            <div className="game_container">
-              {logged && <IdCard exerciseCount={exerciseCount} setExerciseCount={setExerciseCount} />}
-              {!logged && (
-                <>
-                  <GameCard
-                    title="Selección"
-                    image="https://img.freepik.com/vector-gratis/cabecera-twitter-noche-juego_23-2151087804.jpg?t=st=1751826663~exp=1751830263~hmac=e095b8558c8b484ee0392c825ef785af7d988c98d05856195fd6e60b90e3efcc&w=1380"
-                    description="Descripción de la selección"
-                  />
-                  <GameCard
-                    title="Selección"
-                    image="https://img.freepik.com/vector-gratis/cabecera-twitter-noche-juego_23-2151087804.jpg?t=st=1751826663~exp=1751830263~hmac=e095b8558c8b484ee0392c825ef785af7d988c98d05856195fd6e60b90e3efcc&w=1380"
-                    description="Descripción de la selección"
-                  />
-                </>
-              )}
-            </div> 
-          </div>
-        </div>
-        <RightAside exerciseCount={exerciseCount} />
-      </div>
+    return (
+        <BrowserRouter
+            future={{
+                v7_startTransition: true, // Used to improve browsing performance
+                v7_relativeSplatPath: true, // Change the behavior of routes with * to make them more intuitive
+            }}
+        >
+            <div className="main-layout">
+                <Sidebar />
+                <div className="content-center">
+                    <Topbar />
+                    <div className="game" key={levelCount}>
+                        <Routes>
+                            <Route
+                                path="/home"
+                                element={<h1>Home</h1>}
+                            />
+                            <Route
+                                path="/selection/:difficulty"
+                                element={<SelectionGames levelCount={levelCount} setLevelCount={setLevelCount} />}
+                            />
+                            <Route
+                                path="/dnd/:difficulty"
+                                element={<DndGames /* levelCount={levelCount} setLevelCount={setLevelCount}  *//>}
+                            />
+                            <Route
+                                path="/english/:difficulty"
+                                element={<EnglishGames />}
+                            />
+                            <Route
+                                path="/lettersoup/:difficulty"
+                                element={<LetterSoupGames />}
+                            />
+                            <Route
+                                path="/crossword/:difficulty"
+                                element={<CrosswordGames />}
+                            />
+                            <Route
+                                path="/writing/:difficulty"
+                                element={<WritingGames />}
+                            />
+                            <Route
+                                path="/relationship/:difficulty"
+                                element={<RelationshipGames />}
+                            />
+                        </Routes>
+                    </div>
+                </div>
+                <RightAside levelCount={levelCount} />
+            </div>
 
-      {/* <LoginScreen/> */}
-    </BrowserRouter>
-  );
+            {/* <LoginScreen/> */}
+        </BrowserRouter>
+    );
 };
