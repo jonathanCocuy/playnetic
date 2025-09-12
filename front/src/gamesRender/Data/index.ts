@@ -1,8 +1,18 @@
 import explorersOfTheAnimalKingdom from "../Images/explorers-animal-kingdom.png"
-import colorExplorers from "../Images/color-explorers.jpg"
+import colorExplorers from "../Images/color-explorers.png"
+import footballQuiz from "../Images/football-quiz.webp"
+import englishAdventure from "../Images/english-adventure.png"
+import disneyQuiz from "../Images/disney-quiz.webp"
 
 export const gameCardData = {
     selection: [
+        {
+            title: "English Adventure",
+            image: englishAdventure,
+            difficulty: "medium",
+            wordsKey: [],
+            gameId: "english-adventure"
+        },
         {
             title: "Exploradores del Reino",
             image: explorersOfTheAnimalKingdom,
@@ -16,7 +26,22 @@ export const gameCardData = {
             difficulty: "easy",
             wordsKey: [],
             gameId: "color-explorers"
-        }
+        },
+        {
+            title: "Fútbol Quiz",
+            image: footballQuiz,
+            difficulty: "medium",
+            wordsKey: [],
+            gameId: "football-quiz"
+        },
+        {
+            title: "Disney Quiz",
+            image: disneyQuiz,
+            difficulty: "hard",
+            wordsKey: [],
+            gameId: "disney-quiz"
+        },
+        
     ],
     dnd: [
         {

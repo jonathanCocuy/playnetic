@@ -6,6 +6,9 @@ import { useParams, useLocation, useNavigate } from "react-router-dom";
 import { gameCardData } from "../Data";
 import ExplorersOfTheAnimalKingdomComponent from "../../games/Selection/ExplorersOfTheAnimalKingdom/components/Game/MainGameComponent";
 import ColorExplorersComponent from "../../games/Selection/ColorExplorers/components/Game/MainGameComponent";
+import FootballQuizComponent from "../../games/Selection/FootballQuiz/components/Game/MainGameComponent";
+import EnglishAdventureComponent from "../../games/Selection/EnglishAdventure/components/Game/MainGameComponent";
+import DisneyQuizComponent from "../../games/Selection/DisneyQuiz/components/Game/MainGameComponent";
 
 interface SelectionGamesProps {
     levelCount: number;
@@ -71,6 +74,12 @@ export const SelectionGames = ({ levelCount, setLevelCount }: SelectionGamesProp
                 <ExplorersOfTheAnimalKingdomComponent levelCount={levelCount} setLevelCount={setLevelCount} />
             ) : selectedGame === "color-explorers" ? (
                 <ColorExplorersComponent levelCount={levelCount} setLevelCount={setLevelCount} />
+            ) : selectedGame === "football-quiz" ? (
+                <FootballQuizComponent levelCount={levelCount} setLevelCount={setLevelCount} />
+            ) : selectedGame === "english-adventure" ? (
+                <EnglishAdventureComponent levelCount={levelCount} setLevelCount={setLevelCount} />
+            ) : selectedGame === "disney-quiz" ? (
+                <DisneyQuizComponent levelCount={levelCount} setLevelCount={setLevelCount} />
             ) : (
                 renderGameCard()
             )}
