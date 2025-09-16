@@ -31,7 +31,7 @@
 .gridMotion-container {
     z-index: 2;
     flex: none;
-    width: 150vw;
+    width: 190vw;
     height: 150vh;
     position: relative;
     transform: rotate(-15deg);

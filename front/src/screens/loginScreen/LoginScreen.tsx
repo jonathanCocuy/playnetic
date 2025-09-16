@@ -3,10 +3,15 @@ import { items } from "./gridItems";
 import Login from "../../components/Login/Login";
 import "./LoginScreen.scss";
 
-function LoginScreen() {
+interface LoginScreenProps {
+    isLogged: boolean;
+    setIsLogged: (value: boolean) => void;
+}
+
+function LoginScreen({ isLogged, setIsLogged }: LoginScreenProps) {
     return (
         <section className="login-screen">
-            <Login />
+            <Login isLogged={isLogged} setIsLogged={setIsLogged}/>
 
             <GridMotion items={items} />
         </section>

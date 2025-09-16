@@ -13,7 +13,12 @@ import {
     faUsers,
 } from "@fortawesome/free-solid-svg-icons";
 
-export const Sidebar = () => {
+interface LoginScreenProps {
+    isLogged: boolean;
+    setIsLogged: (value: boolean) => void;
+}
+
+export const Sidebar = ({ isLogged, setIsLogged }: LoginScreenProps) => {
     return (
         <aside className="sidebar">
             <div className="container__logo">
@@ -52,10 +57,10 @@ export const Sidebar = () => {
             <hr />
             <ul className="container__list logout">
                 <li className="list">
-                    <NavLink to="/logout" className="link">
+                <button className="link" onClick={() => setIsLogged(!isLogged)}>
                         <FontAwesomeIcon icon={faRightFromBracket} size="2x" />
                         <p>Logout</p>
-                    </NavLink>
+                    </button>
                 </li>
             </ul>
         </aside>
