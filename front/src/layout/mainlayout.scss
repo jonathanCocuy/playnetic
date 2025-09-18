@@ -22,27 +22,25 @@
     }
 
     .content-center {
-        width: 100%;
-        position: relative;
-        padding-top: 120px;
+        position: fixed;
+        top: 0;
+        left: 130px;
+        right: 415px;
+        height: 100vh;
         display: flex;
         flex-direction: column;
-        flex: 1;
         z-index: 1;
+        padding: 0;
 
         .game {
-            min-height: 600px;
+            min-height: calc(100vh - 120px);
             border-radius: 24px;
             border: 1px solid rgba(255, 255, 255, 0.2);
             position: absolute;
             top: 120px;
-            left: 130px;
-            right: 415px;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
+            left: 0;
+            right: 0;
+            bottom: 20px;
             background: linear-gradient(135deg, 
                 rgba(255, 255, 255, 0.9) 0%, 
                 rgba(248, 250, 252, 0.8) 50%, 
@@ -53,7 +51,28 @@
                 0 8px 16px rgba(0, 0, 0, 0.05),
                 inset 0 1px 0 rgba(255, 255, 255, 0.6);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            overflow: hidden;
+            overflow-y: auto;
+            overflow-x: hidden;
+            
+            // Scrollbar personalizado
+            &::-webkit-scrollbar {
+                width: 8px;
+            }
+            
+            &::-webkit-scrollbar-track {
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 4px;
+                margin: 10px 0;
+            }
+            
+            &::-webkit-scrollbar-thumb {
+                background: linear-gradient(135deg, #5e17eb, #7c3aed);
+                border-radius: 4px;
+                
+                &:hover {
+                    background: linear-gradient(135deg, #4c14c7, #6d28d9);
+                }
+            }
 
             &::before {
                 content: '';
@@ -165,6 +184,176 @@
         
         &:hover {
             background: linear-gradient(135deg, #4c14c7, #6d28d9);
+        }
+    }
+}
+
+// Responsive Design
+@media (max-width: 1400px) {
+    .main-layout {
+        .content-center {
+            left: 100px;
+            right: 350px;
+        }
+    }
+    
+    .topbar {
+        left: 100px;
+        right: 350px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .main-layout {
+        .content-center {
+            left: 80px;
+            right: 300px;
+        }
+    }
+    
+    .topbar {
+        left: 80px;
+        right: 300px;
+        
+        .container__search-input {
+            width: 50%;
+            margin-left: 30px;
+        }
+        
+        .container__profile {
+            width: 180px;
+            margin-right: 20px;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .main-layout {
+        .content-center {
+            left: 60px;
+            right: 250px;
+        }
+    }
+    
+    .topbar {
+        left: 60px;
+        right: 250px;
+        
+        .container__search-input {
+            width: 45%;
+            margin-left: 20px;
+            
+            .search {
+                font-size: 16px;
+            }
+        }
+        
+        .container__profile {
+            width: 160px;
+            margin-right: 15px;
+            
+            .text__name {
+                .text {
+                    font-size: 12px;
+                }
+                .name {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .main-layout {
+        .content-center {
+            left: 40px;
+            right: 200px;
+        }
+    }
+    
+    .topbar {
+        left: 40px;
+        right: 200px;
+        height: 70px;
+        
+        .container__search-input {
+            width: 40%;
+            margin-left: 15px;
+            
+            .search {
+                font-size: 14px;
+                padding-block: 10px;
+            }
+        }
+        
+        .container__profile {
+            width: 140px;
+            height: 55px;
+            margin-right: 10px;
+            padding: 6px;
+            
+            .text__name {
+                .text {
+                    font-size: 11px;
+                }
+                .name {
+                    font-size: 13px;
+                }
+            }
+            
+            .button-profile {
+                .profile-image {
+                    height: 35px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .main-layout {
+        .content-center {
+            left: 20px;
+            right: 150px;
+        }
+    }
+    
+    .topbar {
+        left: 20px;
+        right: 150px;
+        height: 60px;
+        
+        .container__search-input {
+            width: 35%;
+            margin-left: 10px;
+            
+            .search {
+                font-size: 12px;
+                padding-block: 8px;
+            }
+        }
+        
+        .container__profile {
+            width: 120px;
+            height: 50px;
+            margin-right: 8px;
+            padding: 4px;
+            
+            .text__name {
+                .text {
+                    font-size: 10px;
+                }
+                .name {
+                    font-size: 12px;
+                }
+            }
+            
+            .button-profile {
+                .profile-image {
+                    height: 30px;
+                }
+            }
         }
     }
 }

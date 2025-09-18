@@ -12,6 +12,7 @@ import { CrosswordGames } from "../gamesRender/CrosswordGames/CrosswordGames";
 import { LetterSoupGames } from "../gamesRender/LetterSoupGames/LetterSoupGames";
 import { WritingGames } from "../gamesRender/WritingGames/WritingGames";
 import { RelationshipGames } from "../gamesRender/RelationshipGames/RelationshipGames";
+import { GamesCatalog } from "../gamesRender/GamesCatalog/GamesCatalog";
 import "./mainlayout.scss";
 import LoginScreen from "../screens/loginScreen/LoginScreen";
 
@@ -40,6 +41,10 @@ export const MainLayout = () => {
                                     <Route
                                         path="/home"
                                         element={<h1>Home</h1>}
+                                    />
+                                    <Route
+                                        path="/games"
+                                        element={<GamesCatalog />}
                                     />
                                     <Route
                                         path="/selection/:difficulty"

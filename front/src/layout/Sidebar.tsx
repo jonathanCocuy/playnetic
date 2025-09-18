@@ -20,10 +20,10 @@ export const Sidebar = ({ isLogged, setIsLogged }: LoginScreenProps) => {
     return (
         <aside className="sidebar">
             <div className="sidebar-header">
-                <div className="logo-container">
+                <NavLink to="/home" className="logo-container">
                     <img className="logo" src={logo} alt="Playnetic" />
                     <div className="logo-glow"></div>
-                </div>
+                </NavLink>
             </div>
 
             <nav className="sidebar-nav">
