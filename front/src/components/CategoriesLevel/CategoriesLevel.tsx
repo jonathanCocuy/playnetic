@@ -2,23 +2,28 @@ import { Link, useParams } from "react-router-dom";
 import "./categoriesLevel.scss";
 
 interface CategoriesLevelProps {
-    game: "selection" | "dnd" | "english" | "lettersoup" | "crossword" | "writing" | "relationship";
+    // Types of differents available games
+    game: "selection" | "dnd" | "lettersoup" | "crossword" | "writing" | "relationship";
 }
 
 export const CategoriesLevel = ({ game }: CategoriesLevelProps) => {
-    const { difficulty } = useParams<{ difficulty: string }>();
+    // Get the difficulty of each game from the URL
+    const { difficulty } = useParams<{ difficulty: string }>(); // Uses the parentesis because useParams is a FUNCTION
     
+    // This function makes the button category stay active based on the selected difficulty
     const isActive = (buttonDifficulty: string) => {
         if (buttonDifficulty === "all") {
+            // If there is not difficulty will be all. (!difficulty)
             return !difficulty || difficulty === "all";
         }
+        // If the difficulty is the same as the button difficulty, the button will be active
         return difficulty === buttonDifficulty;
     };
 
     return (
         <div className="categories-level">
             <div className="categories-list">
-                <Link 
+                <Link
                     className={isActive("all") ? "active item" : "item"}
                     to={`/${game}/all`}
                 >

@@ -38,7 +38,7 @@ export const gameSlice = createSlice({
         // Set number of games completed
         setGamesCompleted: (state, action: PayloadAction<number>) => {
             state.gamesCompleted = action.payload;
-        }, 
+        },
     }
 })
 
