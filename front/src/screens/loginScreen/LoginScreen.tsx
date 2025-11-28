@@ -1,7 +1,7 @@
 import GridMotion from "../../components/GridMotion/GridMotion";
 import { items } from "./gridItems";
 import Login from "../../components/Login/Login";
-import "./LoginScreen.scss";
+import "./loginScreen.scss";
 
 interface LoginScreenProps {
     isLogged: boolean;

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./Login.scss";
+import "./login.scss";
 
 interface LoginScreenProps {
   isLogged: boolean;
