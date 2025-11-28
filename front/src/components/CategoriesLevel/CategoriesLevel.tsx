@@ -2,7 +2,8 @@ import { Link, useParams } from "react-router-dom";
 import "./categoriesLevel.scss";
 
 interface CategoriesLevelProps {
-    game: "selection" | "dnd" | "english" | "lettersoup" | "crossword" | "writing" | "relationship";
+    // Types of differents available games
+    game: "selection" | "dnd" | "lettersoup" | "crossword" | "writing" | "relationship" | "english";
 }
 
 export const CategoriesLevel = ({ game }: CategoriesLevelProps) => {
