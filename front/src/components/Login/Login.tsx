@@ -21,7 +21,7 @@ function Login({ setIsLogged }: LoginScreenProps) {
     // Simular delay de autenticación
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    if (email === "admin" && password === "password") {
+    if (email === "admin" && password === "password*123") {
       setError("");
       setIsLogged(true);
     } else {
