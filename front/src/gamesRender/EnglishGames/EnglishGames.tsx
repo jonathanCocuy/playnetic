@@ -1,5 +1,4 @@
 import GameCard from "../../components/GameCard/GameCard";
-import { CategoriesLevel } from "../../components/CategoriesLevel/CategoriesLevel";
 import "./englishGames.scss";
 import { useParams } from "react-router-dom";
 import { gameCardData } from "../Data";
@@ -16,7 +15,6 @@ export const EnglishGames = () => {
             <div className="english__header">
                 <h1 className="english__title">Juegos de Inglés</h1>
             </div>
-            <CategoriesLevel game="english" />
             <div className="english__list">
                 {filteredGames.map((game, index) => (
                     <GameCard
