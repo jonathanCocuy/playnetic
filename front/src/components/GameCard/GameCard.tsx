@@ -47,15 +47,13 @@ const GameCard: React.FC<GameCardProps> = ({
     gameId,
     onGameSelect,
 }) => {
-    const autoColor = COLORS[
-        getRandomColor()
-    ] as `rgba(${number}, ${number}, ${number}, ${number})`;
+    const autoColor = COLORS[getRandomColor()] as `rgba(${number}, ${number}, ${number}, ${number})`;
 
     const SpotlightColor = spotlightColor || autoColor;
 
     const divRef = useRef<HTMLDivElement>(null);
 
-    const handleMouseMove: React.MouseEventHandler<HTMLDivElement> = (e) => {
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
         if (!divRef.current) return;
 
         const rect = divRef.current.getBoundingClientRect();
@@ -66,6 +64,14 @@ const GameCard: React.FC<GameCardProps> = ({
         divRef.current.style.setProperty("--mouse-y", `${y}px`);
         divRef.current.style.setProperty("--spotlight-color", SpotlightColor);
     };
+
+    function handleGameSelect(): void {
+        if (gameId && onGameSelect) {
+            onGameSelect(gameId);
+        }
+    }
+
+    console.log(children)
 
     return (
         <div
@@ -79,13 +85,9 @@ const GameCard: React.FC<GameCardProps> = ({
                 <h1 className="title">{title}</h1>
             </div>
             <div className="container-button">
-                <GameButton 
-                    name="J U G A R" 
-                    onClick={() => {
-                        if (gameId && onGameSelect) {
-                            onGameSelect(gameId);
-                        }
-                    }}
+                <GameButton
+                    name="J U G A R"
+                    onClick={() => handleGameSelect()}
                 />
             </div>
         </div>

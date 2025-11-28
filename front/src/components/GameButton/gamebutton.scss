@@ -25,7 +25,7 @@
         box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
 
         &::before {
-            animation: sh02 0.5s 0s linear;
+            animation: shimmer-effect 0.5s 0s linear;
         }
     }
 
@@ -49,7 +49,7 @@
     }
 }
 
-@keyframes sh02 {
+@keyframes shimmer-effect {
     from {
         opacity: 0;
         left: 0%;
