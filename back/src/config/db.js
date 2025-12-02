@@ -1,4 +1,4 @@
-const mysql = require("mysql2");
+const mysql = require("mysql2/promise");
 const dotenv = require("dotenv");
 
 dotenv.config();
@@ -14,15 +14,14 @@ const db = mysql.createPool({
 });
 
 try {
-    db.getConnection((error) => {
-        if (error) {
-            console.log("QUE PEDAZO DE ERROR: ", error);
-        } else {
-            console.log("Connected to the database");
-        }
+    db.getConnection().then((connection) => {
+        console.log("Connected to the database");
+        connection.release();
+    }).catch((error) => {
+        console.log("QUE PEDAZO DE ERROR: ", error);
     });
 } catch (error) {
-  console.log(error);
+  console.log("QUE PEDAZO DE ERROR: ", error);
 }
 
 module.exports = db;
