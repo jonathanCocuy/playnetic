@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
 
 export default function Home() {
   return (
@@ -58,6 +60,12 @@ export default function Home() {
           >
             Documentation
           </a>
+          <div className="flex flex-col gap-4">
+            <Input placeholder="Email" type="email" />
+            <Input placeholder="Password" type="password" />
+            <Input placeholder="Confirm Password" type="password" />
+            <Button variant="purple">Registrarse</Button>
+          </div>
         </div>
       </main>
     </div>
