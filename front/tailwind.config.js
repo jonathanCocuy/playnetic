@@ -24,7 +24,12 @@ module.exports = {
                 },
                 accent: "#EC4899",
             },
+
+            fontFamily: {
+                sans: ["var(--font-rubik)"],
+            },
         },
+
     },
     plugins: [],
 };
