@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { useState } from "react";
+/* import Logo from "../../../../app/logo.png"
+import Image from "next/image"; */
 
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
@@ -24,31 +26,65 @@ export default function LoginForm() {
             password,
         });
         if (error) {
-            setError(error.message || "Error al iniciar sesión");
+            setError("Error al iniciar sesión");
         } else {
             router.push("/");
         }
         setLoading(false);
+
+        await supabase.auth.signOut();
     };
 
     return (
-        <div className="flex flex-col items-center justify-center h-screen bg-background-light rounded-lg p-8 gap-4">
-            <h3 className="text-4xl font-bold">Iniciar sesión</h3>
-            <p className="text-sm text-gray-500">Ingresa tus credenciales para continuar</p>
-            <form onSubmit={handleLogin}>
-                <div className="flex flex-col items-center justify-center gap-4">
-                    <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
-                    <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Contraseña" />
-                    <Button variant="purple" type="submit" disabled={loading}>Iniciar sesión</Button>
-                    <Link href="/forgot-password" className="text-sm text-gray-500">¿Olvidaste tu contraseña?</Link>
-                    <hr className="w-full border-gray-300 rounded-full" />
-                    {loading && <p className="text-sm text-gray-500">Cargando...</p>}
-                    <Link href="/register" className="text-sm text-gray-500">
-                        <Button variant="dark">Crear cuenta</Button>
-                    </Link>
-                    {error && <p className="text-sm text-red-500">{error}</p>}
+        <div className="flex items-center justify-center min-h-screen p-4">
+            <div className="w-full max-w-md">
+                <div className="backdrop-blur-xl bg-white/20 rounded-3xl shadow-2xl border border-white/20 p-8">
+                    <div className="text-center mb-8 flex flex-col items-center">
+                        {/* <Image src={Logo} alt="Logo" width={80} /> */}
+                        <h3 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">
+                            Bienvenido de nuevo
+                        </h3>
+                        <p className="text-sm text-white">Ingresa tus credenciales para continuar</p>
+                    </div>
+
+                    <form onSubmit={handleLogin}>
+                        <div className="flex flex-col gap-5">
+                            <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
+                            
+                            <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Contraseña" />
+                            
+                            <Button variant="purple" type="submit" disabled={loading} className="w-full">
+                                {loading ? 'Cargando...' : 'Iniciar sesión'}
+                            </Button>
+                            
+                            <Link href="/forgot-password" className="text-md text-purple-600 hover:text-purple-700 text-center font-medium transition-colors">
+                                ¿Olvidaste tu contraseña?
+                            </Link>
+                            
+                            <div className="flex items-center gap-4 my-4">
+                                <div className="flex-1 border-t border-gray-300"></div>
+                                <span className="text-white text-md">o</span>
+                                <div className="flex-1 border-t border-gray-300"></div>
+                            </div>
+                            
+                            <Link href="/register" className="w-full">
+                                <Button variant="dark" className="w-full">
+                                    Crear cuenta
+                                </Button>
+                            </Link>
+                            
+                            {error && (
+                                <div className="bg-red-50 border border-red-200 rounded-xl p-3 text-center">
+                                    <p className="text-sm text-red-600 font-medium">{error}</p>
+                                </div>
+                            )}
+                        </div>
+                    </form>
                 </div>
-            </form>
+                
+                {/* Decoración adicional */}
+                <p className="text-center text-sm text-gray-500 mt-6">Al continuar, aceptas nuestros términos y condiciones.</p>
+            </div>
         </div>
     );
 }

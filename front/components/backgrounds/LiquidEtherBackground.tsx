@@ -1,13 +1,23 @@
 "use client";
 
+import { usePathname } from 'next/navigation';
 import LiquidEther from '../effects/LiquidEther';
 
 export default function LiquidEtherBackground() {
+    const pathname = usePathname();
+
+    const colors = () => {
+        if (pathname === "/login") {
+            return ['#667EEA', '#764BA2', '#F093FB'];
+        } else if (pathname === "/register") {
+            return ['#00F5A0', '#00D9F5', '#A18CD1'];
+        }
+    }
 
     return (    
         <div style={{ width: '100vw', height: '100vh', position: 'relative' }}>
             <LiquidEther
-                colors={['#667EEA', '#764BA2', '#F093FB']}
+                colors={colors()}
                 mouseForce={40}
                 cursorSize={120}
                 isViscous={true}
