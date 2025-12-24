@@ -38,10 +38,14 @@ export default function LoginForm() {
     return (
         <div className="flex items-center justify-center min-h-screen p-4">
             <div className="w-full max-w-md">
-                <div className="backdrop-blur-xl bg-white/20 rounded-3xl shadow-2xl border border-white/20 p-8">
+                <div className="backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-8">
                     <div className="text-center mb-8 flex flex-col items-center">
                         {/* <Image src={Logo} alt="Logo" width={80} /> */}
-                        <h3 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">
+                        <h3 className="text-4xl font-bold text-purple-400 mb-2"
+                            style={{ 
+                                textShadow: '0 0 10px #a855f7, 0 0 20px #a855f7, 0 0 30px #a855f7, 0 0 40px #a855f7',
+                                letterSpacing: '0.05em'
+                            }}>
                             Bienvenido de nuevo
                         </h3>
                         <p className="text-sm text-white">Ingresa tus credenciales para continuar</p>
@@ -49,9 +53,9 @@ export default function LoginForm() {
 
                     <form onSubmit={handleLogin}>
                         <div className="flex flex-col gap-5">
-                            <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
+                            <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" autoComplete="email" required/>
                             
-                            <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Contraseña" />
+                            <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Contraseña" autoComplete="current-password" required/>
                             
                             <Button variant="purple" type="submit" disabled={loading} className="w-full">
                                 {loading ? 'Cargando...' : 'Iniciar sesión'}
